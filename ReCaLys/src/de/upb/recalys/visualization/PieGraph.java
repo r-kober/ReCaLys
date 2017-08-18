@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
-import org.graphstream.ui.spriteManager.Sprite;
-import org.graphstream.ui.spriteManager.SpriteManager;
 
 import de.upb.recalys.helper.ResourceHandler;
 import de.upb.recalys.model.RCSGraph;
@@ -19,8 +17,6 @@ import de.upb.recalys.visualization.algorithms.MarkAllSimplePaths;
  * ReCaPo experiment task.
  */
 public class PieGraph extends AbstractRCSGraph {
-
-	SpriteManager sman = new SpriteManager(this);
 
 	private int maxEdgeVisits = 0, maxNodeVisits = 0;
 	private RCSTask currentTask;
@@ -443,20 +439,5 @@ public class PieGraph extends AbstractRCSGraph {
 		int backOnRightPath = increaseIntAttribute(node, BACK_ON_RIGHT_PATH);
 
 		return backOnRightPath;
-	}
-
-	// TODO flow löschen wenn es nicht sinnvoll angezeigt werden kann
-	private void setFlowValues() {
-		for (Edge edge : this.getEachEdge()) {
-			if (edge.hasAttribute(EDGE_VISITS)) {
-				int edgeVisits = edge.getAttribute(EDGE_VISITS);
-				int nodeVisits = edge.getSourceNode().getAttribute(NODE_VISITS);
-				double length = (double) edgeVisits / nodeVisits;
-				Sprite flow = sman.addSprite(edge.getId());
-				flow.attachToEdge(edge.getId());
-				flow.setPosition(length);
-				flow.addAttribute("ui.class", "edgeFlow");
-			}
-		}
 	}
 }
