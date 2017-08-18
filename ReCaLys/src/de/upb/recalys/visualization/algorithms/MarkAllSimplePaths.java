@@ -190,10 +190,9 @@ public class MarkAllSimplePaths implements Algorithm {
 				// System.out.println("not yet visited node");
 				dfs(currentTargetNode, node);
 			} else {
-				// this should not happen but is very useful to find errors.
+				// already visited node with no relevant attributes
 				subGraph.removeEdge(currentEdge.getId());
-				System.out.println("something went wrong on edge" + currentEdge.getSourceNode().getLabel("ui.label")
-						+ "->" + currentEdge.getTargetNode().getLabel("ui.label"));
+				// System.out.println("already visited and nothing relevant");
 			}
 		}
 
