@@ -1,0 +1,548 @@
+<?xml version='1.0'?>
+<cardsort>
+  <exp_user_id value="311" duration="00:01:32" startDatetime="2017-08-15 20:56:35" endDatetime="2017-08-15 20:58:07">
+
+    <wanted_item value="Rettungsschwimmen" status="hit" itemID="2142" resultTaskID="634" startDatetime="2017-08-15 20:56:38" endDatetime="2017-08-15 20:57:03" duration="00:00:25">      <item value="Dummy" itemID="2104" resultTaskID="634" datetime="2017-08-15 20:56:39" relativeDuration="1000000" absoluteDuration="1000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Retten" itemID="2122" resultTaskID="634" datetime="2017-08-15 20:56:46" relativeDuration="7000000" absoluteDuration="8000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="634" datetime="2017-08-15 20:56:49" relativeDuration="3000000" absoluteDuration="11000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="634" datetime="2017-08-15 20:56:54" relativeDuration="5000000" absoluteDuration="16000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+      <item value="Qualifizierungen" itemID="2120" resultTaskID="634" datetime="2017-08-15 20:56:58" relativeDuration="4000000" absoluteDuration="20000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Rettungsschwimmen" itemID="2142" resultTaskID="634" datetime="2017-08-15 20:56:59" relativeDuration="1000000" absoluteDuration="21000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="hit" itemID="2121" resultTaskID="635" startDatetime="2017-08-15 20:57:03" endDatetime="2017-08-15 20:57:20" duration="00:00:17">      <item value="Dummy" itemID="2104" resultTaskID="635" datetime="2017-08-15 20:57:09" relativeDuration="6000000" absoluteDuration="6000000">
+        <ms>6</ms>
+        <us>6000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="635" datetime="2017-08-15 20:57:11" relativeDuration="2000000" absoluteDuration="8000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="635" datetime="2017-08-15 20:57:13" relativeDuration="2000000" absoluteDuration="10000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="hit" itemID="2141" resultTaskID="636" startDatetime="2017-08-15 20:57:20" endDatetime="2017-08-15 20:57:58" duration="00:00:38">      <item value="Dummy" itemID="2104" resultTaskID="636" datetime="2017-08-15 20:57:25" relativeDuration="5000000" absoluteDuration="5000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="636" datetime="2017-08-15 20:57:27" relativeDuration="2000000" absoluteDuration="7000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Selbstverständnis" itemID="2107" resultTaskID="636" datetime="2017-08-15 20:57:35" relativeDuration="8000000" absoluteDuration="15000000">
+        <ms>8</ms>
+        <us>8000000</us>
+      </item>
+      <item value="Leitsätze" itemID="2141" resultTaskID="636" datetime="2017-08-15 20:57:50" relativeDuration="15000000" absoluteDuration="30000000">
+        <ms>15</ms>
+        <us>15000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Geschichte" status="hit" itemID="2139" resultTaskID="637" startDatetime="2017-08-15 20:57:58" endDatetime="2017-08-15 20:58:07" duration="00:00:09">      <item value="Dummy" itemID="2104" resultTaskID="637" datetime="2017-08-15 20:58:00" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="637" datetime="2017-08-15 20:58:02" relativeDuration="2000000" absoluteDuration="4000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Geschichte" itemID="2139" resultTaskID="637" datetime="2017-08-15 20:58:06" relativeDuration="4000000" absoluteDuration="8000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="312" duration="00:01:56" startDatetime="2017-08-16 19:45:17" endDatetime="2017-08-16 19:47:13">
+
+    <wanted_item value="Rettungsschwimmen" status="hit" itemID="2142" resultTaskID="638" startDatetime="2017-08-16 19:45:20" endDatetime="2017-08-16 19:45:55" duration="00:00:35">      <item value="Dummy" itemID="2104" resultTaskID="638" datetime="2017-08-16 19:45:21" relativeDuration="1000000" absoluteDuration="1000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="638" datetime="2017-08-16 19:45:30" relativeDuration="9000000" absoluteDuration="10000000">
+        <ms>9</ms>
+        <us>9000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="638" datetime="2017-08-16 19:45:32" relativeDuration="2000000" absoluteDuration="12000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Anmeldung" itemID="2157" resultTaskID="638" datetime="2017-08-16 19:45:41" relativeDuration="9000000" absoluteDuration="21000000">
+        <ms>9</ms>
+        <us>9000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="638" datetime="2017-08-16 19:45:42" relativeDuration="1000000" absoluteDuration="22000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="638" datetime="2017-08-16 19:45:50" relativeDuration="8000000" absoluteDuration="30000000">
+        <ms>8</ms>
+        <us>8000000</us>
+      </item>
+      <item value="Qualifizierungen" itemID="2120" resultTaskID="638" datetime="2017-08-16 19:45:53" relativeDuration="3000000" absoluteDuration="33000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Rettungsschwimmen" itemID="2142" resultTaskID="638" datetime="2017-08-16 19:45:54" relativeDuration="1000000" absoluteDuration="34000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="hit" itemID="2121" resultTaskID="639" startDatetime="2017-08-16 19:45:55" endDatetime="2017-08-16 19:46:09" duration="00:00:14">      <item value="Dummy" itemID="2104" resultTaskID="639" datetime="2017-08-16 19:46:02" relativeDuration="7000000" absoluteDuration="7000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="639" datetime="2017-08-16 19:46:06" relativeDuration="4000000" absoluteDuration="11000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="639" datetime="2017-08-16 19:46:08" relativeDuration="2000000" absoluteDuration="13000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="skipped" itemID="2141" resultTaskID="640" startDatetime="2017-08-16 19:46:09" endDatetime="2017-08-16 19:46:40" duration="00:00:31">      <item value="Dummy" itemID="2104" resultTaskID="640" datetime="2017-08-16 19:46:17" relativeDuration="8000000" absoluteDuration="8000000">
+        <ms>8</ms>
+        <us>8000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="640" datetime="2017-08-16 19:46:21" relativeDuration="4000000" absoluteDuration="12000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Freizeit im Wasser" itemID="2130" resultTaskID="640" datetime="2017-08-16 19:46:25" relativeDuration="4000000" absoluteDuration="16000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="640" datetime="2017-08-16 19:46:32" relativeDuration="7000000" absoluteDuration="23000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="640" datetime="2017-08-16 19:46:33" relativeDuration="1000000" absoluteDuration="24000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="640" datetime="2017-08-16 19:46:36" relativeDuration="3000000" absoluteDuration="27000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Geschichte" status="hit" itemID="2139" resultTaskID="641" startDatetime="2017-08-16 19:46:41" endDatetime="2017-08-16 19:47:13" duration="00:00:32">      <item value="Dummy" itemID="2104" resultTaskID="641" datetime="2017-08-16 19:46:43" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="641" datetime="2017-08-16 19:46:50" relativeDuration="7000000" absoluteDuration="9000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="641" datetime="2017-08-16 19:46:52" relativeDuration="2000000" absoluteDuration="11000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="641" datetime="2017-08-16 19:46:54" relativeDuration="2000000" absoluteDuration="13000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Geschichte" itemID="2139" resultTaskID="641" datetime="2017-08-16 19:47:12" relativeDuration="18000000" absoluteDuration="31000000">
+        <ms>18</ms>
+        <us>18000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="313" duration="00:00:00" startDatetime="2017-08-16 19:47:17" endDatetime="2017-08-16 19:47:17">
+
+
+  </exp_user_id>
+
+  <exp_user_id value="314" duration="00:00:20" startDatetime="2017-08-16 21:10:39" endDatetime="2017-08-16 21:10:59">
+
+    <wanted_item value="Rettungsschwimmen" status="skipped" itemID="2142" resultTaskID="642" startDatetime="2017-08-16 21:10:41" endDatetime="2017-08-16 21:10:54" duration="00:00:13">      <item value="Dummy" itemID="2104" resultTaskID="642" datetime="2017-08-16 21:10:45" relativeDuration="4000000" absoluteDuration="4000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="642" datetime="2017-08-16 21:10:46" relativeDuration="1000000" absoluteDuration="5000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="642" datetime="2017-08-16 21:10:48" relativeDuration="2000000" absoluteDuration="7000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="642" datetime="2017-08-16 21:10:49" relativeDuration="1000000" absoluteDuration="8000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="skipped" itemID="2121" resultTaskID="643" startDatetime="2017-08-16 21:10:54" endDatetime="2017-08-16 21:10:56" duration="00:00:02">    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="skipped" itemID="2141" resultTaskID="644" startDatetime="2017-08-16 21:10:56" endDatetime="2017-08-16 21:10:57" duration="00:00:01">    </wanted_item>
+
+    <wanted_item value="Geschichte" status="skipped" itemID="2139" resultTaskID="645" startDatetime="2017-08-16 21:10:58" endDatetime="2017-08-16 21:10:59" duration="00:00:01">    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="315" duration="00:02:13" startDatetime="2017-08-17 16:58:17" endDatetime="2017-08-17 17:00:30">
+
+    <wanted_item value="Rettungsschwimmen" status="miss" itemID="2142" resultTaskID="646" startDatetime="2017-08-17 16:58:20" endDatetime="2017-08-17 16:58:50" duration="00:00:30">      <item value="Dummy" itemID="2104" resultTaskID="646" datetime="2017-08-17 16:58:22" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Retten" itemID="2122" resultTaskID="646" datetime="2017-08-17 16:58:39" relativeDuration="17000000" absoluteDuration="19000000">
+        <ms>17</ms>
+        <us>17000000</us>
+      </item>
+      <item value="Wasserrettungsdienst" itemID="2123" resultTaskID="646" datetime="2017-08-17 16:58:40" relativeDuration="1000000" absoluteDuration="20000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Erste Hilfe &amp; Sanitätsdienst" itemID="2126" resultTaskID="646" datetime="2017-08-17 16:58:47" relativeDuration="7000000" absoluteDuration="27000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="miss" itemID="2121" resultTaskID="647" startDatetime="2017-08-17 16:58:50" endDatetime="2017-08-17 16:59:49" duration="00:00:59">      <item value="Dummy" itemID="2104" resultTaskID="647" datetime="2017-08-17 16:58:54" relativeDuration="4000000" absoluteDuration="4000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="647" datetime="2017-08-17 16:58:58" relativeDuration="4000000" absoluteDuration="8000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Freizeit im Wasser" itemID="2130" resultTaskID="647" datetime="2017-08-17 16:59:01" relativeDuration="3000000" absoluteDuration="11000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="647" datetime="2017-08-17 16:59:11" relativeDuration="10000000" absoluteDuration="21000000">
+        <ms>10</ms>
+        <us>10000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="647" datetime="2017-08-17 16:59:13" relativeDuration="2000000" absoluteDuration="23000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="647" datetime="2017-08-17 16:59:27" relativeDuration="14000000" absoluteDuration="37000000">
+        <ms>14</ms>
+        <us>14000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="647" datetime="2017-08-17 16:59:29" relativeDuration="2000000" absoluteDuration="39000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="647" datetime="2017-08-17 16:59:47" relativeDuration="18000000" absoluteDuration="57000000">
+        <ms>18</ms>
+        <us>18000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="miss" itemID="2141" resultTaskID="648" startDatetime="2017-08-17 16:59:49" endDatetime="2017-08-17 17:00:00" duration="00:00:11">      <item value="Dummy" itemID="2104" resultTaskID="648" datetime="2017-08-17 16:59:51" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Presse" itemID="2137" resultTaskID="648" datetime="2017-08-17 16:59:58" relativeDuration="7000000" absoluteDuration="9000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Geschichte" status="miss" itemID="2139" resultTaskID="649" startDatetime="2017-08-17 17:00:00" endDatetime="2017-08-17 17:00:30" duration="00:00:30">      <item value="Dummy" itemID="2104" resultTaskID="649" datetime="2017-08-17 17:00:03" relativeDuration="3000000" absoluteDuration="3000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="649" datetime="2017-08-17 17:00:06" relativeDuration="3000000" absoluteDuration="6000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="649" datetime="2017-08-17 17:00:08" relativeDuration="2000000" absoluteDuration="8000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="649" datetime="2017-08-17 17:00:13" relativeDuration="5000000" absoluteDuration="13000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="649" datetime="2017-08-17 17:00:28" relativeDuration="15000000" absoluteDuration="28000000">
+        <ms>15</ms>
+        <us>15000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="316" duration="00:04:19" startDatetime="2017-08-17 17:54:08" endDatetime="2017-08-17 17:58:27">
+
+    <wanted_item value="Rettungsschwimmen" status="hit" itemID="2142" resultTaskID="650" startDatetime="2017-08-17 17:54:37" endDatetime="2017-08-17 17:56:30" duration="00:01:53">      <item value="Dummy" itemID="2104" resultTaskID="650" datetime="2017-08-17 17:56:18" relativeDuration="101000000" absoluteDuration="101000000">
+        <ms>101</ms>
+        <us>101000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="650" datetime="2017-08-17 17:56:22" relativeDuration="4000000" absoluteDuration="105000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="650" datetime="2017-08-17 17:56:24" relativeDuration="2000000" absoluteDuration="107000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="650" datetime="2017-08-17 17:56:25" relativeDuration="1000000" absoluteDuration="108000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Breitenausbildung" itemID="2119" resultTaskID="650" datetime="2017-08-17 17:56:27" relativeDuration="2000000" absoluteDuration="110000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Rettungsschwimmen" itemID="2142" resultTaskID="650" datetime="2017-08-17 17:56:29" relativeDuration="2000000" absoluteDuration="112000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="hit" itemID="2121" resultTaskID="651" startDatetime="2017-08-17 17:56:30" endDatetime="2017-08-17 17:57:12" duration="00:00:42">      <item value="Dummy" itemID="2104" resultTaskID="651" datetime="2017-08-17 17:56:59" relativeDuration="29000000" absoluteDuration="29000000">
+        <ms>29</ms>
+        <us>29000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="651" datetime="2017-08-17 17:57:01" relativeDuration="2000000" absoluteDuration="31000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="651" datetime="2017-08-17 17:57:02" relativeDuration="1000000" absoluteDuration="32000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Anmeldung" itemID="2157" resultTaskID="651" datetime="2017-08-17 17:57:03" relativeDuration="1000000" absoluteDuration="33000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="für Mitglieder" itemID="2138" resultTaskID="651" datetime="2017-08-17 17:57:06" relativeDuration="3000000" absoluteDuration="36000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="651" datetime="2017-08-17 17:57:09" relativeDuration="3000000" absoluteDuration="39000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="hit" itemID="2141" resultTaskID="652" startDatetime="2017-08-17 17:57:12" endDatetime="2017-08-17 17:57:55" duration="00:00:43">      <item value="Dummy" itemID="2104" resultTaskID="652" datetime="2017-08-17 17:57:17" relativeDuration="5000000" absoluteDuration="5000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="652" datetime="2017-08-17 17:57:36" relativeDuration="19000000" absoluteDuration="24000000">
+        <ms>19</ms>
+        <us>19000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="652" datetime="2017-08-17 17:57:42" relativeDuration="6000000" absoluteDuration="30000000">
+        <ms>6</ms>
+        <us>6000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="652" datetime="2017-08-17 17:57:43" relativeDuration="1000000" absoluteDuration="31000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="652" datetime="2017-08-17 17:57:48" relativeDuration="5000000" absoluteDuration="36000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+      <item value="Selbstverständnis" itemID="2107" resultTaskID="652" datetime="2017-08-17 17:57:50" relativeDuration="2000000" absoluteDuration="38000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Leitsätze" itemID="2141" resultTaskID="652" datetime="2017-08-17 17:57:53" relativeDuration="3000000" absoluteDuration="41000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Geschichte" status="miss" itemID="2139" resultTaskID="653" startDatetime="2017-08-17 17:57:55" endDatetime="2017-08-17 17:58:27" duration="00:00:32">      <item value="Dummy" itemID="2104" resultTaskID="653" datetime="2017-08-17 17:57:57" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="653" datetime="2017-08-17 17:57:59" relativeDuration="2000000" absoluteDuration="4000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="653" datetime="2017-08-17 17:58:11" relativeDuration="12000000" absoluteDuration="16000000">
+        <ms>12</ms>
+        <us>12000000</us>
+      </item>
+      <item value="Informieren" itemID="2129" resultTaskID="653" datetime="2017-08-17 17:58:15" relativeDuration="4000000" absoluteDuration="20000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="653" datetime="2017-08-17 17:58:17" relativeDuration="2000000" absoluteDuration="22000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Presse" itemID="2137" resultTaskID="653" datetime="2017-08-17 17:58:24" relativeDuration="7000000" absoluteDuration="29000000">
+        <ms>7</ms>
+        <us>7000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="317" duration="00:01:04" startDatetime="2017-08-17 23:18:18" endDatetime="2017-08-17 23:19:22">
+
+    <wanted_item value="Rettungsschwimmen" status="hit" itemID="2142" resultTaskID="654" startDatetime="2017-08-17 23:18:21" endDatetime="2017-08-17 23:18:48" duration="00:00:27">      <item value="Dummy" itemID="2104" resultTaskID="654" datetime="2017-08-17 23:18:27" relativeDuration="6000000" absoluteDuration="6000000">
+        <ms>6</ms>
+        <us>6000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="654" datetime="2017-08-17 23:18:31" relativeDuration="4000000" absoluteDuration="10000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Dummy" itemID="2104" resultTaskID="654" datetime="2017-08-17 23:18:37" relativeDuration="6000000" absoluteDuration="16000000">
+        <ms>6</ms>
+        <us>6000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="654" datetime="2017-08-17 23:18:39" relativeDuration="2000000" absoluteDuration="18000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Qualifizierungen" itemID="2120" resultTaskID="654" datetime="2017-08-17 23:18:45" relativeDuration="6000000" absoluteDuration="24000000">
+        <ms>6</ms>
+        <us>6000000</us>
+      </item>
+      <item value="Rettungsschwimmen" itemID="2142" resultTaskID="654" datetime="2017-08-17 23:18:46" relativeDuration="1000000" absoluteDuration="25000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="hit" itemID="2121" resultTaskID="655" startDatetime="2017-08-17 23:18:48" endDatetime="2017-08-17 23:18:56" duration="00:00:08">      <item value="Dummy" itemID="2104" resultTaskID="655" datetime="2017-08-17 23:18:51" relativeDuration="3000000" absoluteDuration="3000000">
+        <ms>3</ms>
+        <us>3000000</us>
+      </item>
+      <item value="Lernen" itemID="2118" resultTaskID="655" datetime="2017-08-17 23:18:53" relativeDuration="2000000" absoluteDuration="5000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Lehrgänge" itemID="2121" resultTaskID="655" datetime="2017-08-17 23:18:54" relativeDuration="1000000" absoluteDuration="6000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="hit" itemID="2141" resultTaskID="656" startDatetime="2017-08-17 23:18:56" endDatetime="2017-08-17 23:19:15" duration="00:00:19">      <item value="Dummy" itemID="2104" resultTaskID="656" datetime="2017-08-17 23:18:57" relativeDuration="1000000" absoluteDuration="1000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="656" datetime="2017-08-17 23:19:01" relativeDuration="4000000" absoluteDuration="5000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="656" datetime="2017-08-17 23:19:03" relativeDuration="2000000" absoluteDuration="7000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="656" datetime="2017-08-17 23:19:05" relativeDuration="2000000" absoluteDuration="9000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="656" datetime="2017-08-17 23:19:06" relativeDuration="1000000" absoluteDuration="10000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="656" datetime="2017-08-17 23:19:08" relativeDuration="2000000" absoluteDuration="12000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Selbstverständnis" itemID="2107" resultTaskID="656" datetime="2017-08-17 23:19:12" relativeDuration="4000000" absoluteDuration="16000000">
+        <ms>4</ms>
+        <us>4000000</us>
+      </item>
+      <item value="Leitsätze" itemID="2141" resultTaskID="656" datetime="2017-08-17 23:19:14" relativeDuration="2000000" absoluteDuration="18000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+    </wanted_item>
+
+    <wanted_item value="Geschichte" status="hit" itemID="2139" resultTaskID="657" startDatetime="2017-08-17 23:19:15" endDatetime="2017-08-17 23:19:22" duration="00:00:07">      <item value="Dummy" itemID="2104" resultTaskID="657" datetime="2017-08-17 23:19:17" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="657" datetime="2017-08-17 23:19:19" relativeDuration="2000000" absoluteDuration="4000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Geschichte" itemID="2139" resultTaskID="657" datetime="2017-08-17 23:19:21" relativeDuration="2000000" absoluteDuration="6000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+  <exp_user_id value="318" duration="00:00:27" startDatetime="2017-08-17 23:57:45" endDatetime="2017-08-17 23:58:12">
+
+    <wanted_item value="Rettungsschwimmen" status="skipped" itemID="2142" resultTaskID="658" startDatetime="2017-08-17 23:57:48" endDatetime="2017-08-17 23:57:51" duration="00:00:03">    </wanted_item>
+
+    <wanted_item value="Lehrgänge" status="skipped" itemID="2121" resultTaskID="659" startDatetime="2017-08-17 23:57:51" endDatetime="2017-08-17 23:57:53" duration="00:00:02">    </wanted_item>
+
+    <wanted_item value="Leitsätze" status="skipped" itemID="2141" resultTaskID="660" startDatetime="2017-08-17 23:57:53" endDatetime="2017-08-17 23:57:57" duration="00:00:04">    </wanted_item>
+
+    <wanted_item value="Geschichte" status="hit" itemID="2139" resultTaskID="661" startDatetime="2017-08-17 23:57:57" endDatetime="2017-08-17 23:58:12" duration="00:00:15">      <item value="Dummy" itemID="2104" resultTaskID="661" datetime="2017-08-17 23:57:59" relativeDuration="2000000" absoluteDuration="2000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="661" datetime="2017-08-17 23:58:01" relativeDuration="2000000" absoluteDuration="4000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="661" datetime="2017-08-17 23:58:02" relativeDuration="1000000" absoluteDuration="5000000">
+        <ms>1</ms>
+        <us>1000000</us>
+      </item>
+      <item value="Organisation" itemID="2109" resultTaskID="661" datetime="2017-08-17 23:58:04" relativeDuration="2000000" absoluteDuration="7000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Die DLRG" itemID="2105" resultTaskID="661" datetime="2017-08-17 23:58:06" relativeDuration="2000000" absoluteDuration="9000000">
+        <ms>2</ms>
+        <us>2000000</us>
+      </item>
+      <item value="Geschichte" itemID="2139" resultTaskID="661" datetime="2017-08-17 23:58:11" relativeDuration="5000000" absoluteDuration="14000000">
+        <ms>5</ms>
+        <us>5000000</us>
+      </item>
+    </wanted_item>
+
+
+  </exp_user_id>
+
+
+</cardsort>

@@ -1,0 +1,65 @@
+node {
+	shape: pie-chart;
+	/*the colors for the pie-chart sections*/
+	fill-color: #a1d424, #da1f47, #006699, #ac38ff, #43c9dc, #e8b024,
+		#9b9c96;
+	padding: 3;
+	/*label preferences*/
+	text-alignment: under;
+	text-style: bold;
+	/*text-size: 12;*/
+	text-size:18;
+	stroke-mode: plain;
+	stroke-color: #ffffff;
+	stroke-width: 3;
+	z-index: 10;
+}
+
+node.simplePath {
+	shadow-mode: plain;
+	shadow-color: #a1d424;
+	shadow-width: 8;
+	shadow-offset: 0;
+}
+
+node.start {
+	shadow-mode: plain;
+	shadow-color: #649701;
+	shadow-width: 8;
+	shadow-offset: 0;
+}
+
+node.target {
+	shadow-mode: plain;
+	shadow-color: #649701;
+	shadow-width: 8;
+	shadow-offset: 0;
+}
+
+edge {
+	fill-color: #bbbbbb;
+	shape: angle;
+	arrow-shape: none;
+	z-index: 1;
+}
+
+edge.simplePath {
+	fill-color: #a1d424;
+}
+
+edge.userPath {
+	shadow-mode: plain;
+	shadow-color: #ac38ff;
+	shadow-width: 5;
+	shadow-offset: 0;
+	text-style: bold-italic;
+	text-alignment: along;
+	/*text-size: 10;*/
+	text-size: 18;
+	text-offset: 0, 10;
+	z-index: 2;
+}
+
+graph {
+	padding: 60;
+}

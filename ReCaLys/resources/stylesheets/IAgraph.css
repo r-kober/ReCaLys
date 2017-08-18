@@ -1,0 +1,31 @@
+node {
+	shape: rounded-box; size-mode : fit;
+	stroke-mode: plain;
+	stroke-color: #b3b3b3;
+	fill-color: white;
+	size-mode: fit;
+	/*text-size: 13;*/
+}
+
+edge {
+	shape: blob;
+	fill-color: #b3b3b3;
+	arrow-shape: none;
+}
+
+node:clicked {
+	size: 30;
+	text-size: 18;
+}
+
+node.target {
+	fill-color: green;
+}
+
+node.start {
+	fill-color: orange;
+}
+
+graph {
+	padding: 50;
+}

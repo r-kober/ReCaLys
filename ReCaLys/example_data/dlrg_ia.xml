@@ -1,0 +1,664 @@
+<?xml version='1.0'?>
+<recapo>
+        
+  <item level="1">
+    <id>5130</id>
+    <title>Dummy</title>
+    <flag>root</flag>
+    <sectionID>0</sectionID>
+    <itemID>2104</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="2">
+    <id>5191</id>
+    <title>Die DLRG</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2105</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="3">
+    <id>5202</id>
+    <title>Geschichte</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2139</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5203</id>
+    <title>News</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2106</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5204</id>
+    <title>Selbstverständnis</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2107</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5233</id>
+    <title>Satzung</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2143</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5234</id>
+    <title>Leitsätze</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2141</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5235</id>
+    <title>Kurzdarstellung</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2144</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5209</id>
+    <title>Ordnungen</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2108</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="5">
+    <id>5231</id>
+    <title>Geschäftsordnung</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2140</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="5">
+    <id>5231</id>
+    <title>Ehrengerichtsordnung</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2145</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="5">
+    <id>5231</id>
+    <title>Wirtschaftsordnung</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2146</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="5">
+    <id>5231</id>
+    <title>Ehrungsordnung</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2147</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5205</id>
+    <title>Organisation</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2109</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5239</id>
+    <title>Organisation</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2159</itemID>
+    <linkToInformationarchitectureID>5205</linkToInformationarchitectureID>
+    <linkToItemID>2109</linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5207</id>
+    <title>Vernetzung</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2114</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5208</id>
+    <title>Transparenz</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2116</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5206</id>
+    <title>Kooperationen</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2115</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5192</id>
+    <title>Jugend</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2117</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5193</id>
+    <title>Lernen</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2118</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="3">
+    <id>5219</id>
+    <title>Breitenausbildung</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2119</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5220</id>
+    <title>Rettungsschwimmen</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2142</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5227</id>
+    <title>Qualifizierungen</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2120</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5229</id>
+    <title>Rettungsschwimmen</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2142</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="3">
+    <id>5228</id>
+    <title>Lehrgänge</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2121</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5237</id>
+    <title>Anmeldung</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2157</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="5">
+    <id>5238</id>
+    <title>Informationen über Mitglieder</title>
+    <flag>item</flag>
+    <sectionID>2</sectionID>
+    <itemID>2158</itemID>
+    <linkToInformationarchitectureID>5199</linkToInformationarchitectureID>
+    <linkToItemID>2138</linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5194</id>
+    <title>Lernen</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2151</itemID>
+    <linkToInformationarchitectureID>5193</linkToInformationarchitectureID>
+    <linkToItemID>2118</linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5236</id>
+    <title>Qualifizierungen</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2156</itemID>
+    <linkToInformationarchitectureID>5227</linkToInformationarchitectureID>
+    <linkToItemID>2120</linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5195</id>
+    <title>Retten</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2122</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="3">
+    <id>5201</id>
+    <title>Wasserrettungsdienst</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2123</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5223</id>
+    <title>Gefahrenabwehr im Bevölkerungsschutz</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2124</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5223</id>
+    <title>Boote, Fahrzeuge &amp; Materialien</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2125</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5223</id>
+    <title>Erste Hilfe &amp; Sanitätsdienst</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2126</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5223</id>
+    <title>Kommunikation (IuK)</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2127</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5223</id>
+    <title>Einsatztagebuch</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2128</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5196</id>
+    <title>Informieren</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2129</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="3">
+    <id>5200</id>
+    <title>Freizeit im Wasser</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2130</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="4">
+    <id>5222</id>
+    <title>Sicherheitstipps</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2131</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5222</id>
+    <title>Regeln</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2132</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5222</id>
+    <title>Gefahren</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2133</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5222</id>
+    <title>Selbst- und Fremdrettung</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2134</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="4">
+    <id>5222</id>
+    <title>Publikationen</title>
+    <flag>container</flag>
+    <sectionID></sectionID>
+    <itemID>2135</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5197</id>
+    <title>Sport</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2136</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5198</id>
+    <title>Presse</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2137</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+        
+  <item level="2">
+    <id>5199</id>
+    <title>für Mitglieder</title>
+    <flag>item</flag>
+    <sectionID>1</sectionID>
+    <itemID>2138</itemID>
+    <linkToInformationarchitectureID></linkToInformationarchitectureID>
+    <linkToItemID></linkToItemID>
+    <children>
+              
+  <item level="3">
+    <id>5230</id>
+    <title>Lehrgänge</title>
+    <flag>item</flag>
+    <sectionID>3</sectionID>
+    <itemID>2154</itemID>
+    <linkToInformationarchitectureID>5228</linkToInformationarchitectureID>
+    <linkToItemID>2121</linkToItemID>
+    <children>
+          
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+    </children>
+  </item>
+  
+    
+</recapo>
+
+
