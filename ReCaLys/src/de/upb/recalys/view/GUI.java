@@ -70,6 +70,8 @@ import java.awt.FlowLayout;
 import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.Font;
+import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
 
 /**
  * This class defines the gui of this app.
@@ -658,13 +660,27 @@ public class GUI extends javax.swing.JFrame {
 						+ "\t</p>\n\t<p style='margin-top:10'>\n\tJe höher die latenz, desto länger mussten die Testpersonen überlegen.\n\t</p>\n</html>");
 		lblProblem.setBorder(new EmptyBorder(0, 0, 15, 0));
 		pnlProblems.add(lblProblem, BorderLayout.NORTH);
-
-		scrollPaneProblems = new JScrollPane();
-		pnlProblems.add(scrollPaneProblems, BorderLayout.CENTER);
-
-		tblProblems = new JTable();
-
-		scrollPaneProblems.setViewportView(tblProblems);
+		
+		splitPane = new JSplitPane();
+		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		pnlProblems.add(splitPane, BorderLayout.CENTER);
+		
+				scrollPaneProblems = new JScrollPane();
+				splitPane.setLeftComponent(scrollPaneProblems);
+				
+						tblProblems = new JTable();
+						
+								scrollPaneProblems.setViewportView(tblProblems);
+								
+								scrollPaneSSDLog = new JScrollPane();
+								splitPane.setRightComponent(scrollPaneSSDLog);
+								
+								txtrSSDLog = new JTextArea();
+								txtrSSDLog.setLineWrap(true);
+								txtrSSDLog.setWrapStyleWord(true);
+								txtrSSDLog.setTabSize(4);
+								scrollPaneSSDLog.setViewportView(txtrSSDLog);
+								txtrSSDLog.setText("SSD-Log");
 
 		pnlDetails = new JPanel();
 		pnlDetails.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -1310,5 +1326,8 @@ public class GUI extends javax.swing.JFrame {
 	private JSeparator separator_1;
 	private JMenuItem miResetIAView;
 	private JCheckBoxMenuItem chckbxmntmShowCoverage;
+	private JSplitPane splitPane;
+	private JTextArea txtrSSDLog;
+	private JScrollPane scrollPaneSSDLog;
 
 }
