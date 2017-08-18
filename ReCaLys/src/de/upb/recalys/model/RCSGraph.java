@@ -299,13 +299,6 @@ public class RCSGraph implements Serializable {
 	 * @return coverage of the experiment
 	 */
 	public double getCoverage() {
-		for (Integer id : nodeMap.keySet()) {
-			RCSNode node = nodeMap.get(id);
-			/*
-			 * System.out.println("Node: "+node.getLabel()+", visits: "
-			 * +node.getVisitsOnOptimalPath()+ ", degree: " +node.getDegree());
-			 */
-		}
 		return root.getCoverage();
 	}
 
@@ -316,6 +309,7 @@ public class RCSGraph implements Serializable {
 	 * 
 	 * @return HotList
 	 */
+	@SuppressWarnings("rawtypes")
 	public LinkedList[] getHotList() {
 		LinkedList[] hotList = new LinkedList[2];
 		LinkedList<RCSNode> leaves = new LinkedList<RCSNode>();
@@ -350,7 +344,7 @@ public class RCSGraph implements Serializable {
 			leaves.offer(target);
 			int distFromNode;
 			int distFromChild;
-			LinkedList queue = new LinkedList();
+			LinkedList<RCSNode> queue = new LinkedList<RCSNode>();
 			queue.offer(root);
 			root.setSimulatedVisits(root.getSimulatedVisits() + 1);
 			while (queue.size() > 0) {
@@ -480,7 +474,6 @@ public class RCSGraph implements Serializable {
 		String[] rows = importedRows;
 		int rowsCount = rows.length;
 		int columnsCount = countColumns(rows[0]);
-		int linkCounter = 0;
 
 		root = new RCSNode(0, "Startseite");
 		nodeMap.put(new Integer(root.getID()), root);
@@ -544,7 +537,6 @@ public class RCSGraph implements Serializable {
 							}
 							int link_id = Integer.parseInt(columns[j].substring(5, bracket));
 							node = crossLinks[link_id];
-							linkCounter++;
 						} else {
 							node = new RCSNode(id, columns[j]);
 							id++;

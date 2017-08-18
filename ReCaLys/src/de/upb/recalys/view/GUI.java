@@ -340,6 +340,15 @@ public class GUI extends javax.swing.JFrame {
 		miSavePieGraphAsPicture.setEnabled(b);
 		chckbxmntmShowLegend.setEnabled(b);
 	}
+	
+	/**
+	 * Sets the SSD log.
+	 *
+	 * @param log the new SSD log
+	 */
+	public void setSSDLog(String log){
+		txtrSSDLog.setText(log);
+	}
 
 	/**
 	 * Returns true, if details-for-problem is selected returns false, if
@@ -381,7 +390,7 @@ public class GUI extends javax.swing.JFrame {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		menuImport = new JMenu("Importieren");
+		menuImport = new JMenu("Datei");
 		menuBar.add(menuImport);
 
 		lblRecapo = new JLabel("ReCaPo");
@@ -405,7 +414,6 @@ public class GUI extends javax.swing.JFrame {
 		menuImport.add(miImportResults);
 
 		separatorImport2 = new JSeparator();
-		separatorImport2.setVisible(false);
 		menuImport.add(separatorImport2);
 
 		miImportExperiment = new JMenuItem("Auswertung importieren");
@@ -415,6 +423,15 @@ public class GUI extends javax.swing.JFrame {
 				miImportExperimentActionPerformed(e);
 			}
 		});
+		
+		miSaveSSDlog = new JMenuItem("SSD-Log speichern");
+		miSaveSSDlog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miSaveSSDlogActionPerformed(e);
+			}
+		});
+		miSaveSSDlog.setEnabled(false);
+		menuImport.add(miSaveSSDlog);
 		menuImport.add(miImportExperiment);
 
 		menuAnalyse = new JMenu("Auswerten");
@@ -676,11 +693,14 @@ public class GUI extends javax.swing.JFrame {
 								splitPane.setRightComponent(scrollPaneSSDLog);
 								
 								txtrSSDLog = new JTextArea();
+								txtrSSDLog.setEditable(false);
 								txtrSSDLog.setLineWrap(true);
 								txtrSSDLog.setWrapStyleWord(true);
 								txtrSSDLog.setTabSize(4);
 								scrollPaneSSDLog.setViewportView(txtrSSDLog);
-								txtrSSDLog.setText("SSD-Log");
+								
+								lblSsdlog = new JLabel("SSD-Log");
+								scrollPaneSSDLog.setColumnHeaderView(lblSsdlog);
 
 		pnlDetails = new JPanel();
 		pnlDetails.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -891,6 +911,7 @@ public class GUI extends javax.swing.JFrame {
 
 				chckbxmntmShowCoverage.setVisible(false);
 				chckbxmntmShowCoverage.setSelected(false);
+				miSaveSSDlog.setEnabled(false);
 			} else {
 				JOptionPane.showMessageDialog(this,
 						"Die ausgewählte XML-Datei repräsentiert keine Informationsarchitektur, die in ReCaPo erstellt wurde.",
@@ -923,6 +944,7 @@ public class GUI extends javax.swing.JFrame {
 				pieGraphTest.init(recalys.getGraph());
 
 				chckbxmntmShowCoverage.setVisible(true);
+				miSaveSSDlog.setEnabled(true);
 			} else
 				JOptionPane.showMessageDialog(this,
 						"Die ausgewählte XML-Datei repräsentiert keine Resultate, die in ReCaPo erstellt wurden.",
@@ -1228,6 +1250,24 @@ public class GUI extends javax.swing.JFrame {
 			iaView.getCamera().resetView();
 		}
 	}
+	
+	protected void miSaveSSDlogActionPerformed(ActionEvent e) {
+		if ( txtrSSDLog.getText().equals("")) {
+			JOptionPane.showMessageDialog(this,
+					"Der SSD-Log ist leer und kann daher nicht gespeichert werden.", "SSD-Log leer", JOptionPane.WARNING_MESSAGE);
+		} else {
+			JFileChooser fc = new JFileChooser();
+			fc.setSelectedFile(new File("ssd-log.txt"));
+			if (fc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+				String saveDirectory = fc.getSelectedFile().getPath();
+				if (!saveDirectory.endsWith(".txt")) {
+					saveDirectory = saveDirectory + ".txt";
+				}
+				this.recalys.exportSystematicSearchLog(saveDirectory);
+			}
+		}
+		
+	}
 
 	/**
 	 * Gets the ia graph.
@@ -1329,5 +1369,8 @@ public class GUI extends javax.swing.JFrame {
 	private JSplitPane splitPane;
 	private JTextArea txtrSSDLog;
 	private JScrollPane scrollPaneSSDLog;
+	private JLabel lblSsdlog;
+	private JMenuItem miSaveSSDlog;
 
+	
 }

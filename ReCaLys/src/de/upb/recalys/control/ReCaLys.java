@@ -228,7 +228,6 @@ public class ReCaLys {
 	 */
 	public void analyse() {
 		resetAnalysis();
-
 		graph.computeMinimalLatencies(timeToThink);
 		nodesToInspect = graph.computeNodesToInspect();
 
@@ -243,7 +242,7 @@ public class ReCaLys {
 		hotList = graph.getHotList();
 		complete = true;
 		updateGUI();
-		exportSystematicSearchLog();
+		updateSystematicSearchLog();
 	}
 
 	/**
@@ -403,15 +402,36 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Exports the logfile for the detection of systematic searching
+	 * Updates the Log in the GUI for the detection of systematic searching
 	 */
-	public void exportSystematicSearchLog() {
+	public void updateSystematicSearchLog() {
 		String log = graph.getSystematicSearchingLog();
-		System.out.println(log);
+		gui.setSSDLog(log);
+
 		if (log.equals(""))
 			return;
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter("ssd-log.txt"));
+			pw.print(log);
+			pw.flush();
+			pw.close();
+		} catch (IOException ex) {
+			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
+	/**
+	 * Exports the logfile for the detection of systematic searching into the
+	 * given save directory.
+	 *
+	 * @param saveDirectory
+	 *            the save directory
+	 */
+	public void exportSystematicSearchLog(String saveDirectory) {
+		String log = graph.getSystematicSearchingLog();
+
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(saveDirectory));
 			pw.print(log);
 			pw.flush();
 			pw.close();
