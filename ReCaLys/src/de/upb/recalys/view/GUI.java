@@ -679,6 +679,7 @@ public class GUI extends javax.swing.JFrame {
 		pnlProblems.add(lblProblem, BorderLayout.NORTH);
 		
 		splitPane = new JSplitPane();
+		splitPane.setResizeWeight(1.0);
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		pnlProblems.add(splitPane, BorderLayout.CENTER);
 		
