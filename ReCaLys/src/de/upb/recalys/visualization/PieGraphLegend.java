@@ -23,24 +23,6 @@ public class PieGraphLegend extends JPanel {
 			"Aufgabe übersprungen" };;
 	private final String[] edgeItems = { "Weg führt zum Ziel", "Weg führt nicht zum Ziel", "vom Nutzer gegangener Weg" };
 
-	// TODO test main methode löschen, wenn alles fertig ist.
-	public static void main(String[] args) {
-
-		SwingUtilities.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				JFrame frame = new JFrame("Legende");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setSize(800, 130);
-
-				PieGraphLegend legend = new PieGraphLegend();
-				frame.add(legend);
-
-				frame.setVisible(true);
-			}
-		});
-	}
 
 	/**
 	 * Create the panel.

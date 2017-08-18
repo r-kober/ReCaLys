@@ -191,9 +191,9 @@ public class MarkAllSimplePaths implements Algorithm {
 				dfs(currentTargetNode, node);
 			} else {
 				// this should not happen but is very useful to find errors.
-				// TODO durch Exception ersetzen
 				subGraph.removeEdge(currentEdge.getId());
-				// System.out.println("something went wrong");
+				System.out.println("something went wrong on edge" + currentEdge.getSourceNode().getLabel("ui.label")
+						+ "->" + currentEdge.getTargetNode().getLabel("ui.label"));
 			}
 		}
 

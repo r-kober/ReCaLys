@@ -238,10 +238,7 @@ public class PieGraph extends AbstractRCSGraph {
 			if (edge.hasAttribute(EDGE_VISITS)) {
 				visits = edge.getAttribute(EDGE_VISITS);
 				size = Math.max(MIN_EDGE_SIZE, 2 * (Math.ceil(((double) visits * MAX_EDGE_SIZE) / maxEdgeVisits / 2)));
-				// TODO Testoutput entfernen
-				// System.out.println(edge + ": " + visits + "/" + maxEdgeVisits
-				// + "
-				// - size: " + size);
+				
 				edge.addAttribute("ui.style", "size: " + size + ";");
 			}
 		}
@@ -257,10 +254,7 @@ public class PieGraph extends AbstractRCSGraph {
 			if (node.hasAttribute(NODE_VISITS)) {
 				visits = node.getAttribute(NODE_VISITS);
 				size = Math.max(MIN_NODE_SIZE, 5 * (Math.ceil(((double) visits * MAX_NODE_SIZE) / maxNodeVisits / 5)));
-				// TODO Testoutput entfernen
-				// System.out.println(node + ": " + visits + "/" + maxNodeVisits
-				// + "
-				// - size: " + size);
+				
 				node.addAttribute("ui.style", "size: " + size + ";");
 				if (size < MIN_NODE_SIZE + 5) {
 					node.addAttribute("layout.weight", (1.5 - size / (MAX_NODE_SIZE * 2)));

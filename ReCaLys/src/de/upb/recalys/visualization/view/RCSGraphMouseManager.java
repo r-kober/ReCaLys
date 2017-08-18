@@ -17,7 +17,6 @@ public class RCSGraphMouseManager extends DefaultMouseManager {
 
 	@Override
 	public void mousePressed(MouseEvent event) {
-		// TODO Auto-generated method stub
 		super.mousePressed(event);
 		camera = this.view.getCamera();
 		xLastViewCenter = camera.getViewCenter().x;
