@@ -72,6 +72,7 @@ import javax.swing.UIManager;
 import java.awt.Font;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
 
 /**
  * This class defines the gui of this app.
@@ -656,6 +657,7 @@ public class GUI extends javax.swing.JFrame {
 		pnlOverview.add(lblTaskOverview, gbc_lblTaskOverview);
 
 		scrollPaneSurvey = new JScrollPane();
+		scrollPaneSurvey.setBorder(new LineBorder(Color.GRAY, 1, true));
 		GridBagConstraints gbc_scrollPaneSurvey = new GridBagConstraints();
 		gbc_scrollPaneSurvey.gridwidth = 6;
 		gbc_scrollPaneSurvey.fill = GridBagConstraints.BOTH;
@@ -684,6 +686,7 @@ public class GUI extends javax.swing.JFrame {
 		pnlProblems.add(splitPane, BorderLayout.CENTER);
 		
 				scrollPaneProblems = new JScrollPane();
+				scrollPaneProblems.setBorder(new LineBorder(Color.GRAY, 1, true));
 				splitPane.setLeftComponent(scrollPaneProblems);
 				
 						tblProblems = new JTable();
@@ -691,9 +694,12 @@ public class GUI extends javax.swing.JFrame {
 								scrollPaneProblems.setViewportView(tblProblems);
 								
 								scrollPaneSSDLog = new JScrollPane();
+								scrollPaneSSDLog.setPreferredSize(new Dimension(4, 70));
+								scrollPaneSSDLog.setBorder(new LineBorder(Color.GRAY, 1, true));
 								splitPane.setRightComponent(scrollPaneSSDLog);
 								
 								txtrSSDLog = new JTextArea();
+								txtrSSDLog.setPreferredSize(new Dimension(0, 50));
 								txtrSSDLog.setEditable(false);
 								txtrSSDLog.setLineWrap(true);
 								txtrSSDLog.setWrapStyleWord(true);
@@ -702,6 +708,7 @@ public class GUI extends javax.swing.JFrame {
 								
 								lblSsdlog = new JLabel("SSD-Log");
 								scrollPaneSSDLog.setColumnHeaderView(lblSsdlog);
+								splitPane.setDividerLocation(400);
 
 		pnlDetails = new JPanel();
 		pnlDetails.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -744,6 +751,7 @@ public class GUI extends javax.swing.JFrame {
 		lblDetailsFor = new JLabel("Details zu ...");
 
 		scrollPaneDetails = new JScrollPane();
+		scrollPaneDetails.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
 
 		tblDetails = new JTable();
 		scrollPaneDetails.setViewportView(tblDetails);
@@ -823,6 +831,7 @@ public class GUI extends javax.swing.JFrame {
 		pnlCoverage.add(lblCoverageInfo, gbc_lblCoverageInfo);
 
 		scrollPaneCoverage = new JScrollPane();
+		scrollPaneCoverage.setBorder(new LineBorder(Color.GRAY, 1, true));
 		GridBagConstraints gbc_scrollPaneCoverage = new GridBagConstraints();
 		gbc_scrollPaneCoverage.gridwidth = 2;
 		gbc_scrollPaneCoverage.insets = new Insets(0, 0, 0, 5);
@@ -1339,7 +1348,6 @@ public class GUI extends javax.swing.JFrame {
 	private JComboBox<String> comboBoxProblem;
 	private JComboBox<String> comboBoxTask;
 	private JLabel lblDetailsFor;
-	private JScrollPane scrollPaneDetails;
 	private JTable tblDetails;
 	private JLabel lblTotalCoverage;
 	private JProgressBar barTotalCoverage;
@@ -1372,6 +1380,7 @@ public class GUI extends javax.swing.JFrame {
 	private JScrollPane scrollPaneSSDLog;
 	private JLabel lblSsdlog;
 	private JMenuItem miSaveSSDlog;
+	private JScrollPane scrollPaneDetails;
 
 	
 }
