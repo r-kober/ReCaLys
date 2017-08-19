@@ -1194,7 +1194,8 @@ public class GUI extends javax.swing.JFrame {
 		}
 		newTaskSelected = false;
 		comboBoxUserForPieGraph.setSelectedIndex(0);
-
+		
+		pieView.getCamera().resetView();
 	}
 
 	/**

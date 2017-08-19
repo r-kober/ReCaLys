@@ -40,8 +40,6 @@ public class RCSNode implements Serializable {
 	private ArrayList<Integer> latencies;
 	private ArrayList<Integer>[] latenciesPerTask;
 
-	private HashMap<Integer, Integer> distances;
-
 	/**
 	 * Constructor: Creates a new Node
 	 * 
@@ -60,8 +58,6 @@ public class RCSNode implements Serializable {
 		levelChildren = new ArrayList<RCSNode>();
 		levelParents = new ArrayList<RCSNode>();
 		latencies = new ArrayList<Integer>();
-
-		distances = new HashMap<>();
 	}
 
 	/**
