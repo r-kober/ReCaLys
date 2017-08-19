@@ -26,7 +26,7 @@ public class PieGraph extends AbstractRCSGraph {
 			RIGHT_PATH = "rightPath", WRONG_PATH = "wrongPath", WENT_BACK = "wentBack", SKIPPED = "skipped",
 			LOOP = "loop", BACK_ON_RIGHT_PATH = "backOnRightPath", SIMPLE_PATH = "simplePath", USER_PATH = "userPath";
 
-	private final int MAX_EDGE_SIZE = 20, MIN_EDGE_SIZE = 2;
+	private final int MAX_EDGE_SIZE = 25, MIN_EDGE_SIZE = 2;
 	private final int MAX_NODE_SIZE = 80, MIN_NODE_SIZE = 16;
 
 	/**
