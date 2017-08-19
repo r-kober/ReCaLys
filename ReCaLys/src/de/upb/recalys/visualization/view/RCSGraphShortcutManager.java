@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 
 import org.graphstream.ui.geom.Point3;
 import org.graphstream.ui.view.Camera;
-import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.util.DefaultShortcutManager;
 
 /**
@@ -27,7 +26,7 @@ public class RCSGraphShortcutManager extends DefaultShortcutManager {
 		if (event.getKeyChar() == '+') {
 			camera.setViewPercent(Math.max(0.0001, camera.getViewPercent() * 0.9));
 		} else if (event.getKeyChar() == '-') {
-			camera.setViewPercent(Math.min(1.5,camera.getViewPercent() * 1.1));
+			camera.setViewPercent(Math.min(1.5, camera.getViewPercent() * 1.1));
 		} else if (event.getKeyCode() == KeyEvent.VK_LEFT) {
 			double delta = 0;
 

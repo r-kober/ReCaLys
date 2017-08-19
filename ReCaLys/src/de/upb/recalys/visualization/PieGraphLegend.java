@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import de.upb.recalys.helper.CSSColorExtractor;
 
@@ -21,8 +19,8 @@ public class PieGraphLegend extends JPanel {
 	private final String[] pieItems = { "richtig gegangen", "falsch gegangen", "zurück gegangen",
 			"zum richtigen Pfad gewechselt", "zum selben Knoten gegangen", "Knoten ausgewählt",
 			"Aufgabe übersprungen" };;
-	private final String[] edgeItems = { "Weg führt zum Ziel", "Weg führt nicht zum Ziel", "vom Nutzer gegangener Weg" };
-
+	private final String[] edgeItems = { "Weg führt zum Ziel", "Weg führt nicht zum Ziel",
+			"vom Nutzer gegangener Weg" };
 
 	/**
 	 * Create the panel.

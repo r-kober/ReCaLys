@@ -6,7 +6,6 @@ package de.upb.recalys.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * This class defines the nodes that represent the pages in a website structure.

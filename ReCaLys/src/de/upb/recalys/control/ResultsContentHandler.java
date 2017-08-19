@@ -46,8 +46,8 @@ public class ResultsContentHandler extends DefaultHandler {
 	 */
 	@SuppressWarnings("unused")
 	private final String EXP_USER_ID = "exp_user_id", WANTED_ITEM = "wanted_item", VALUE = "value", ITEM_ID = "itemID",
-			RESULT_TASK_ID = "resultTaskID", ITEM = "item", ROOT = "Dummy", STATUS = "status", SKIPPED = "skipped", UNKNOWN = "unkown",
-			MS = "ms", DURATION = "duration", RELATIVE_DURATION = "relativeDuration";
+			RESULT_TASK_ID = "resultTaskID", ITEM = "item", ROOT = "Dummy", STATUS = "status", SKIPPED = "skipped",
+			UNKNOWN = "unkown", MS = "ms", DURATION = "duration", RELATIVE_DURATION = "relativeDuration";
 
 	/**
 	 * Constructor: Creates a new PathContentHandler
@@ -96,8 +96,8 @@ public class ResultsContentHandler extends DefaultHandler {
 			RCSNode source = graph.getRoot();
 
 			String status = atrbts.getValue(STATUS);
-			skipped = status.equals(SKIPPED)? true : false;
-			unknown = status.equals(UNKNOWN)?true:false;
+			skipped = status.equals(SKIPPED) ? true : false;
+			unknown = status.equals(UNKNOWN) ? true : false;
 
 			String duration = atrbts.getValue(DURATION);
 
@@ -132,7 +132,7 @@ public class ResultsContentHandler extends DefaultHandler {
 		} else if (qName.equals(ITEM)) {
 			String nodeLabel = atrbts.getValue(VALUE);
 			Integer itemID = Integer.parseInt(atrbts.getValue(ITEM_ID));
-			time = Integer.parseInt(atrbts.getValue(RELATIVE_DURATION))/1000;
+			time = Integer.parseInt(atrbts.getValue(RELATIVE_DURATION)) / 1000;
 			itemCount++;
 			if (nodeLabel.equals(ROOT)) {
 				currentNode = graph.getRoot();

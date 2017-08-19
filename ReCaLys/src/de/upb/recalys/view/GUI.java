@@ -1,7 +1,9 @@
 package de.upb.recalys.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -36,11 +37,17 @@ import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.graphstream.ui.swingViewer.ViewPanel;
@@ -60,19 +67,6 @@ import de.upb.recalys.visualization.PieGraph;
 import de.upb.recalys.visualization.PieGraphLegend;
 import de.upb.recalys.visualization.view.RCSGraphMouseManager;
 import de.upb.recalys.visualization.view.RCSGraphShortcutManager;
-
-import javax.swing.JCheckBox;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.KeyStroke;
-import java.awt.event.InputEvent;
-import java.awt.FlowLayout;
-import java.awt.Color;
-import javax.swing.UIManager;
-import java.awt.Font;
-import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
-import javax.swing.border.LineBorder;
 
 /**
  * This class defines the gui of this app.
@@ -341,13 +335,14 @@ public class GUI extends javax.swing.JFrame {
 		miSavePieGraphAsPicture.setEnabled(b);
 		chckbxmntmShowLegend.setEnabled(b);
 	}
-	
+
 	/**
 	 * Sets the SSD log.
 	 *
-	 * @param log the new SSD log
+	 * @param log
+	 *            the new SSD log
 	 */
-	public void setSSDLog(String log){
+	public void setSSDLog(String log) {
 		txtrSSDLog.setText(log);
 	}
 
@@ -424,7 +419,7 @@ public class GUI extends javax.swing.JFrame {
 				miImportExperimentActionPerformed(e);
 			}
 		});
-		
+
 		miSaveSSDlog = new JMenuItem("SSD-Log speichern");
 		miSaveSSDlog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -679,36 +674,36 @@ public class GUI extends javax.swing.JFrame {
 						+ "\t</p>\n\t<p style='margin-top:10'>\n\tJe höher die latenz, desto länger mussten die Testpersonen überlegen.\n\t</p>\n</html>");
 		lblProblem.setBorder(new EmptyBorder(0, 0, 15, 0));
 		pnlProblems.add(lblProblem, BorderLayout.NORTH);
-		
+
 		splitPane = new JSplitPane();
 		splitPane.setResizeWeight(1.0);
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		pnlProblems.add(splitPane, BorderLayout.CENTER);
-		
-				scrollPaneProblems = new JScrollPane();
-				scrollPaneProblems.setBorder(new LineBorder(Color.GRAY, 1, true));
-				splitPane.setLeftComponent(scrollPaneProblems);
-				
-						tblProblems = new JTable();
-						
-								scrollPaneProblems.setViewportView(tblProblems);
-								
-								scrollPaneSSDLog = new JScrollPane();
-								scrollPaneSSDLog.setPreferredSize(new Dimension(4, 70));
-								scrollPaneSSDLog.setBorder(new LineBorder(Color.GRAY, 1, true));
-								splitPane.setRightComponent(scrollPaneSSDLog);
-								
-								txtrSSDLog = new JTextArea();
-								txtrSSDLog.setPreferredSize(new Dimension(0, 50));
-								txtrSSDLog.setEditable(false);
-								txtrSSDLog.setLineWrap(true);
-								txtrSSDLog.setWrapStyleWord(true);
-								txtrSSDLog.setTabSize(4);
-								scrollPaneSSDLog.setViewportView(txtrSSDLog);
-								
-								lblSsdlog = new JLabel("SSD-Log");
-								scrollPaneSSDLog.setColumnHeaderView(lblSsdlog);
-								splitPane.setDividerLocation(400);
+
+		scrollPaneProblems = new JScrollPane();
+		scrollPaneProblems.setBorder(new LineBorder(Color.GRAY, 1, true));
+		splitPane.setLeftComponent(scrollPaneProblems);
+
+		tblProblems = new JTable();
+
+		scrollPaneProblems.setViewportView(tblProblems);
+
+		scrollPaneSSDLog = new JScrollPane();
+		scrollPaneSSDLog.setPreferredSize(new Dimension(4, 70));
+		scrollPaneSSDLog.setBorder(new LineBorder(Color.GRAY, 1, true));
+		splitPane.setRightComponent(scrollPaneSSDLog);
+
+		txtrSSDLog = new JTextArea();
+		txtrSSDLog.setPreferredSize(new Dimension(0, 50));
+		txtrSSDLog.setEditable(false);
+		txtrSSDLog.setLineWrap(true);
+		txtrSSDLog.setWrapStyleWord(true);
+		txtrSSDLog.setTabSize(4);
+		scrollPaneSSDLog.setViewportView(txtrSSDLog);
+
+		lblSsdlog = new JLabel("SSD-Log");
+		scrollPaneSSDLog.setColumnHeaderView(lblSsdlog);
+		splitPane.setDividerLocation(400);
 
 		pnlDetails = new JPanel();
 		pnlDetails.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -1194,7 +1189,7 @@ public class GUI extends javax.swing.JFrame {
 		}
 		newTaskSelected = false;
 		comboBoxUserForPieGraph.setSelectedIndex(0);
-		
+
 		pieView.getCamera().resetView();
 	}
 
@@ -1261,11 +1256,11 @@ public class GUI extends javax.swing.JFrame {
 			iaView.getCamera().resetView();
 		}
 	}
-	
+
 	protected void miSaveSSDlogActionPerformed(ActionEvent e) {
-		if ( txtrSSDLog.getText().equals("")) {
-			JOptionPane.showMessageDialog(this,
-					"Der SSD-Log ist leer und kann daher nicht gespeichert werden.", "SSD-Log leer", JOptionPane.WARNING_MESSAGE);
+		if (txtrSSDLog.getText().equals("")) {
+			JOptionPane.showMessageDialog(this, "Der SSD-Log ist leer und kann daher nicht gespeichert werden.",
+					"SSD-Log leer", JOptionPane.WARNING_MESSAGE);
 		} else {
 			JFileChooser fc = new JFileChooser();
 			fc.setSelectedFile(new File("ssd-log.txt"));
@@ -1277,7 +1272,7 @@ public class GUI extends javax.swing.JFrame {
 				this.recalys.exportSystematicSearchLog(saveDirectory);
 			}
 		}
-		
+
 	}
 
 	/**
@@ -1383,5 +1378,4 @@ public class GUI extends javax.swing.JFrame {
 	private JMenuItem miSaveSSDlog;
 	private JScrollPane scrollPaneDetails;
 
-	
 }

@@ -434,9 +434,11 @@ public class RCSGraph implements Serializable {
 			if (idOfMax != -1) {
 				badList.offer(getNodeByID(idOfMax));
 
-//				System.out.println(
-//						i + ": " + getNodeByID(idOfMax).getLabel() + "> Malus: " + maxMalus + ", LatencyWeight: "
-//								+ maxLatencyWeight + ", DistRating: " + getNodeByID(idOfMax).getDistRating());
+				// System.out.println(
+				// i + ": " + getNodeByID(idOfMax).getLabel() + "> Malus: " +
+				// maxMalus + ", LatencyWeight: "
+				// + maxLatencyWeight + ", DistRating: " +
+				// getNodeByID(idOfMax).getDistRating());
 
 			}
 		}

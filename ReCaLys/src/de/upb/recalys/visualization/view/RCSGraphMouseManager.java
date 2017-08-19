@@ -2,7 +2,6 @@ package de.upb.recalys.visualization.view;
 
 import java.awt.event.MouseEvent;
 
-import org.graphstream.ui.geom.Point3;
 import org.graphstream.ui.view.Camera;
 import org.graphstream.ui.view.util.DefaultMouseManager;
 

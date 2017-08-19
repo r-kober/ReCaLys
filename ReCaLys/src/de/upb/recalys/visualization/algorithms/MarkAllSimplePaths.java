@@ -11,8 +11,6 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
-import de.upb.recalys.visualization.GraphTools;
-
 /**
  * Implementation of a algorithm to mark all edges and nodes that would be on a
  * simple path and store these in a subgraph.

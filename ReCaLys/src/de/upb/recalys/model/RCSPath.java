@@ -1,7 +1,6 @@
 package de.upb.recalys.model;
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -137,7 +136,7 @@ public class RCSPath implements Serializable {
 						distFromNext = distFromHere + 1;
 
 					node.increaseDistRating(distFromNext - distFromHere + 1);
-					node.addLatency(latencies.get(i));					
+					node.addLatency(latencies.get(i));
 					node.visitOnTask(task.getID(), distFromNext - distFromHere + 1, latencies.get(i));
 				}
 			}

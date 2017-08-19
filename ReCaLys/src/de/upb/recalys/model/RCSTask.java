@@ -201,13 +201,13 @@ public class RCSTask implements Serializable {
 		}
 		return avgTime / paths.size();
 	}
-	
+
 	/**
 	 * Gets the average path length for the Task.
 	 *
 	 * @return the average path length.
 	 */
-	public int getAveragePathLength(){
+	public int getAveragePathLength() {
 		if (paths.size() == 0) {
 			return 0;
 		}
@@ -227,10 +227,9 @@ public class RCSTask implements Serializable {
 	public String toString() {
 		NumberFormat n = NumberFormat.getInstance();
 		n.setMaximumFractionDigits(2);
-		
-		
+
 		return alternativeTargetName + " (Lösungsquote: " + n.format(solutionRate * 100) + "% - \u00D8-Zeit: "
-				+ getAverageTimeTaken() + "s - \u00D8-Länge: " +getAveragePathLength()+ " Schritte)";
+				+ getAverageTimeTaken() + "s - \u00D8-Länge: " + getAveragePathLength() + " Schritte)";
 	}
 
 }
