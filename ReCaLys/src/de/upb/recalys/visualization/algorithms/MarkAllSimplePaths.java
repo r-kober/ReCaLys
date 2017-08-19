@@ -98,7 +98,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	 *            the current node that the algorithm starts from
 	 */
 	public void dfs(Node node, Node lastNode) {
-		int backwardsEdgeCount = 0;
+		boolean hasBackwardsEdge = false;
 		node.addAttribute(VISITED);
 
 		for (Edge currentEdge : node.getEachLeavingEdge()) {
@@ -107,7 +107,7 @@ public class MarkAllSimplePaths implements Algorithm {
 				// Backward edges should always be visited last
 				stack.push(currentEdge);
 
-				backwardsEdgeCount++;
+				hasBackwardsEdge = true;
 				// System.out.println(currentEdge + ": " + "has backwards
 				// edge");
 				continue;
@@ -194,46 +194,39 @@ public class MarkAllSimplePaths implements Algorithm {
 			}
 		}
 
-		if (backwardsEdgeCount >= 1) {
+		if (hasBackwardsEdge) {
 			// backwards edge handling
-			int handledBackwardsEdges = 0;
-			for (int i = 1; i <= backwardsEdgeCount; i++) {
+			Edge backwardsEdge = stack.pop();
+			// System.out.print(backwardsEdge);
+			if (backwardsEdge.getSourceNode().hasAttribute(HAS_PATH)
+					&& backwardsEdge.getTargetNode().hasAttribute(HAS_PATH)) {
+				Edge initialEdge = backwardsEdge.getTargetNode().getEdgeToward(backwardsEdge.getSourceNode().getId());
 
-				Edge backwardsEdge = stack.pop();
-				// System.out.print(backwardsEdge);
-				if (backwardsEdge.getSourceNode().hasAttribute(HAS_PATH)
-						&& backwardsEdge.getTargetNode().hasAttribute(HAS_PATH)) {
-					Edge initialEdge = backwardsEdge.getTargetNode()
-							.getEdgeToward(backwardsEdge.getSourceNode().getId());
+				subGraph.removeEdge(initialEdge.getId());
 
-					subGraph.removeEdge(initialEdge.getId());
+				if (checkIsWay(subGraph.getNode(backwardsEdge.getTargetNode().getId()),
+						subGraph.getNode(target.getId()))) {
+					subGraph.addEdge(backwardsEdge.getId(), backwardsEdge.getSourceNode().getId(),
+							backwardsEdge.getTargetNode().getId(), true);
+					// System.out.println("backwardsedge is simple");
 
-					if (checkIsWay(subGraph.getNode(backwardsEdge.getTargetNode().getId()),
-							subGraph.getNode(target.getId()))) {
-						subGraph.addEdge(backwardsEdge.getId(), backwardsEdge.getSourceNode().getId(),
-								backwardsEdge.getTargetNode().getId(), true);
-						handledBackwardsEdges++;
-						// System.out.println("backwardsedge is simple");
-
-					}
-					// add removed edge back into the subgraph
-					subGraph.addEdge(initialEdge.getId(), initialEdge.getSourceNode().getId(),
-							initialEdge.getTargetNode().getId(), true);
-					setHasPath(subGraph);
-				} else if (backwardsEdge.getSourceNode().hasAttribute(HAS_PATH)) {
-					// not possible because if I found a path than it used the
-					// source
-					// System.out.println(" source has path");
-				} else if (backwardsEdge.getTargetNode().hasAttribute(HAS_PATH)) {
-					// do nothing. This will be handled possibly from the source
-					// node if there is another path to it.
-					// System.out.println(" target has path");
-				} else {
-					backwardsEdge.setAttribute(FORBIDDEN_EDGE);
-					// System.out.println(" forbidden");
 				}
+				// add removed edge back into the subgraph
+				subGraph.addEdge(initialEdge.getId(), initialEdge.getSourceNode().getId(),
+						initialEdge.getTargetNode().getId(), true);
+				setHasPath(subGraph);
+			} else if (backwardsEdge.getSourceNode().hasAttribute(HAS_PATH)) {
+				// not possible because if I found a path than it used the
+				// source
+				// System.out.println(" source has path");
+			} else if (backwardsEdge.getTargetNode().hasAttribute(HAS_PATH)) {
+				// do nothing. This will be handled possibly from the source
+				// node if there is another path to it.
+				// System.out.println(" target has path");
+			} else {
+				backwardsEdge.setAttribute(FORBIDDEN_EDGE);
+				// System.out.println(" forbidden");
 			}
-			backwardsEdgeCount -= handledBackwardsEdges;
 		}
 
 		if (0 == Toolkit.leavingWeightedDegree(subGraph.getNode(node.getId()), "") && node.hasAttribute(VISITED)) {
