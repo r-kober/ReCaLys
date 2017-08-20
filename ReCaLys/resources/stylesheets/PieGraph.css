@@ -7,8 +7,7 @@ node {
 	/*label preferences*/
 	text-alignment: under;
 	text-style: bold;
-	/*text-size: 12;*/
-	text-size:18;
+	text-size: 12;
 	stroke-mode: plain;
 	stroke-color: #ffffff;
 	stroke-width: 3;
@@ -54,8 +53,7 @@ edge.userPath {
 	shadow-offset: 0;
 	text-style: bold-italic;
 	text-alignment: along;
-	/*text-size: 10;*/
-	text-size: 15;
+	text-size: 10;
 	text-offset: 0, 10;
 	z-index: 2;
 }
