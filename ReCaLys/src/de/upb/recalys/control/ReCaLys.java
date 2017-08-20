@@ -1,5 +1,6 @@
 package de.upb.recalys.control;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -20,6 +21,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
+import de.upb.recalys.helper.ResourceHandler;
 import de.upb.recalys.model.ExperimentFile;
 import de.upb.recalys.model.RCSGraph;
 import de.upb.recalys.model.RCSNode;
@@ -63,6 +65,8 @@ public class ReCaLys {
 			public void run() {
 				gui = new GUI(recalys);
 				gui.setVisible(true);
+				gui.setIconImage(
+						Toolkit.getDefaultToolkit().getImage(ResourceHandler.getURL("/ReCaLys_Logo_Windows.png")));
 			}
 		});
 	}
