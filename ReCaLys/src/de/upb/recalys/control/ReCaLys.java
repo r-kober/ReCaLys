@@ -49,8 +49,6 @@ public class ReCaLys {
 	private int userCount = 0;
 	private ObjectInputStream ois;
 
-	// private static boolean isRecapoImport = true;
-
 	/**
 	 * Constructor: Creates a new ReCaLys-object
 	 */
