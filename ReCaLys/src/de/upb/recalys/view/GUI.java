@@ -26,6 +26,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -74,7 +75,7 @@ import de.upb.recalys.visualization.view.RCSGraphShortcutManager;
  * @version 1.1
  */
 @SuppressWarnings("serial")
-public class GUI extends javax.swing.JFrame {
+public class GUI extends JFrame {
 
 	private ReCaLys recalys;
 	private IAGraph iaGraph;
