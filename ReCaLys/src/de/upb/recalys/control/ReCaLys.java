@@ -137,8 +137,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Imports a xml-file that contains the results of an experiment in ReCaPo
-	 * and creates an experiment that can be analyzed.
+	 * Imports a xml-file that contains the results of an experiment in ReCaPo and
+	 * creates an experiment that can be analyzed.
 	 * 
 	 * @param importFile
 	 *            file that shall be imported
@@ -169,8 +169,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Returns the number of nodes that must be inspected combined for detection
-	 * of systematic searching
+	 * Returns the number of nodes that must be inspected combined for detection of
+	 * systematic searching
 	 * 
 	 * @return number of nodes to inspect combined
 	 */
@@ -179,18 +179,20 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Sets the maximal problem-rate for the detection of systematic searching
-	 * 
+	 * Sets the maximal problem-rate for the detection of systematic searching.
+	 *
 	 * @param rate
+	 *            the new max problem rate
 	 */
 	public void setMaxProblemRate(double rate) {
 		maxProblemRate = rate;
 	}
 
 	/**
-	 * Sets the maximal return-rate for the detection of systematic searching
-	 * 
+	 * Sets the maximal return-rate for the detection of systematic searching.
+	 *
 	 * @param rate
+	 *            the new max return rate
 	 */
 	public void setMaxReturnRate(double rate) {
 		maxReturnRate = rate;
@@ -215,8 +217,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Sets in the time a standard user will max. need to think before choosing
-	 * a link
+	 * Sets in the time a standard user will max. need to think before choosing a
+	 * link
 	 * 
 	 * @param time
 	 *            time to think
@@ -226,8 +228,7 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Gives the time a standard user will max. need to think before choosing a
-	 * link
+	 * Gives the time a standard user will max. need to think before choosing a link
 	 * 
 	 * @return time to think
 	 */
@@ -236,8 +237,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Returns the graph that represents the website structure
-	 * 
+	 * Returns the graph that represents the website structure.
+	 *
 	 * @return graph
 	 */
 	public RCSGraph getGraph() {
@@ -279,9 +280,9 @@ public class ReCaLys {
 	 * @param file
 	 *            file the experiment shall be saved into
 	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because
-	 *             the import process for ReCaPo is much easier and a separate
-	 *             import and export mechanism is not needed anymore
+	 * @deprecated As of Version 1.1 this method is not used anymore, because the
+	 *             import process for ReCaPo is much easier and a separate import
+	 *             and export mechanism is not needed anymore
 	 */
 	@Deprecated
 	public void saveExperiment(File file) {
@@ -311,9 +312,9 @@ public class ReCaLys {
 	 * @param file
 	 *            experiment file
 	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because
-	 *             the import process for ReCaPo is much easier and a separate
-	 *             import and export mechanism is not needed anymore
+	 * @deprecated As of Version 1.1 this method is not used anymore, because the
+	 *             import process for ReCaPo is much easier and a separate import
+	 *             and export mechanism is not needed anymore
 	 */
 	@Deprecated
 	public void loadExperiment(File file) {
@@ -422,9 +423,9 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Returns if the analysis is executed entirely
-	 * 
-	 * @return
+	 * Returns true if the analysis is executed entirely.
+	 *
+	 * @return true, if analysis is executed entirely.
 	 */
 	public boolean analysisComplete() {
 		return complete;
@@ -450,8 +451,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Exports the logfile for the detection of systematic searching into the
-	 * given save directory.
+	 * Exports the logfile for the detection of systematic searching into the given
+	 * save directory.
 	 *
 	 * @param saveDirectory
 	 *            the save directory

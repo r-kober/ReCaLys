@@ -20,8 +20,7 @@ public class RCSPath implements Serializable {
 	boolean successfull;
 	boolean invalid;
 	/**
-	 * true if the corresponding task was skipped by the tester. false
-	 * otherwise.
+	 * true if the corresponding task was skipped by the tester. false otherwise.
 	 */
 	boolean skipped;
 	int minimumDistance;
@@ -80,9 +79,10 @@ public class RCSPath implements Serializable {
 	}
 
 	/**
-	 * Returns the node at the position index in the path
-	 * 
+	 * Returns the node at the position index in the path.
+	 *
 	 * @param index
+	 *            the index
 	 * @return node
 	 */
 	public RCSNode getNode(int index) {
@@ -99,8 +99,8 @@ public class RCSPath implements Serializable {
 	}
 
 	/**
-	 * Returns if this is a successfull path. (A successfull path reaches the
-	 * target node.)
+	 * Returns if this is a successfull path. (A successfull path reaches the target
+	 * node.)
 	 * 
 	 * @return isSuccessfull
 	 */
@@ -144,11 +144,14 @@ public class RCSPath implements Serializable {
 	}
 
 	/**
-	 * This method is used to detect systematic searching on this path
-	 * 
+	 * This method is used to detect systematic searching on this path.
+	 *
 	 * @param nodesToInspect
+	 *            the nodes to inspect
 	 * @param maxProblemRate
+	 *            the max problem rate
 	 * @param maxReturnRate
+	 *            the max return rate
 	 */
 	public void detectSystematicSearching(int nodesToInspect, double maxProblemRate, double maxReturnRate) {
 
@@ -220,9 +223,10 @@ public class RCSPath implements Serializable {
 	}
 
 	/**
-	 * Sets the user this paths belongs to
-	 * 
+	 * Sets the user this paths belongs to.
+	 *
 	 * @param user
+	 *            the new user
 	 */
 	public void setUser(String user) {
 		userID = user;
@@ -288,7 +292,7 @@ public class RCSPath implements Serializable {
 	 * Sets skipped attribute.
 	 *
 	 * @param skipped
-	 * 
+	 *            new value for skipped
 	 */
 	public void setSkipped(boolean skipped) {
 		this.skipped = skipped;
@@ -324,7 +328,7 @@ public class RCSPath implements Serializable {
 		// output.delete(output.lastIndexOf("->"), output.length());
 		// return output.toString();
 
-		return userID + " - " + (isSuccessfull() ? "erfolgreich" : isSkipped() ? "übersprungen" : "nicht erfolgreich") + " - "
-				+ duration + " - " + (path.size() - 1) + (path.size() == 2 ? " Schritt - " : " Schritte");
+		return userID + " - " + (isSuccessfull() ? "erfolgreich" : isSkipped() ? "übersprungen" : "nicht erfolgreich")
+				+ " - " + duration + " - " + (path.size() - 1) + (path.size() == 2 ? " Schritt - " : " Schritte");
 	}
 }

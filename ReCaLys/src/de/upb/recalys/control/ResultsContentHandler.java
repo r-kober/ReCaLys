@@ -41,8 +41,7 @@ public class ResultsContentHandler extends DefaultHandler {
 	private int itemCount;
 
 	/*
-	 * the names of the relevant xml-tags and attributes for the import of the
-	 * tasks
+	 * the names of the relevant xml-tags and attributes for the import of the tasks
 	 */
 	@SuppressWarnings("unused")
 	private final String EXP_USER_ID = "exp_user_id", WANTED_ITEM = "wanted_item", VALUE = "value", ITEM_ID = "itemID",
@@ -50,14 +49,10 @@ public class ResultsContentHandler extends DefaultHandler {
 			UNKNOWN = "unkown", MS = "ms", DURATION = "duration", RELATIVE_DURATION = "relativeDuration";
 
 	/**
-	 * Constructor: Creates a new PathContentHandler
-	 * 
+	 * Constructor: Creates a new PathContentHandler.
+	 *
 	 * @param recalys
 	 *            object of the main class of this app
-	 * @param experiment
-	 *            task list of the experiment
-	 * @param graph
-	 *            graph this paths are on
 	 */
 	public ResultsContentHandler(ReCaLys recalys) {
 		this.recalys = recalys;
@@ -70,14 +65,19 @@ public class ResultsContentHandler extends DefaultHandler {
 	}
 
 	/**
-	 * Searches for appearance of wanted Items and then creates a list of all
-	 * wanted items.
-	 * 
+	 * Searches for appearance of wanted Items and then creates a list of all wanted
+	 * items.
+	 *
 	 * @param uri
+	 *            the uri
 	 * @param localName
+	 *            the local name
 	 * @param qName
+	 *            the q name
 	 * @param atrbts
+	 *            the atrbts
 	 * @throws SAXException
+	 *             the SAX exception
 	 */
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes atrbts) throws SAXException {
@@ -144,20 +144,24 @@ public class ResultsContentHandler extends DefaultHandler {
 	}
 
 	/**
-	 * Searches for appearance of wanted Items and then creates a list of all
-	 * wanted items. Is triggered if a new element starts.
-	 * 
+	 * Searches for appearance of wanted Items and then creates a list of all wanted
+	 * items. Is triggered if a new element starts.
+	 *
 	 * @param uri
+	 *            the uri
 	 * @param localName
+	 *            the local name
 	 * @param qName
+	 *            the q name
 	 * @throws SAXException
+	 *             the SAX exception
 	 */
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (qName.equals(WANTED_ITEM)) {
 			/*
-			 * skipped tasks that have no path are not imported, because they
-			 * have no relevant data. The tester didn't even try to complete the
-			 * task. Paths that have an "unknown" status are also not imported.
+			 * skipped tasks that have no path are not imported, because they have no
+			 * relevant data. The tester didn't even try to complete the task. Paths that
+			 * have an "unknown" status are also not imported.
 			 */
 			if (skipped && itemCount == 0 || unknown) {
 				newPath = null;

@@ -70,6 +70,8 @@ public class RCSTask implements Serializable {
 	/**
 	 * Returns the alternative name of the target node (e.g. if there was a
 	 * description in the task for the wanted item instead of only its name)
+	 *
+	 * @return the alternative target name
 	 */
 	public String getAlternativeTargetName() {
 		return alternativeTargetName;
@@ -146,7 +148,14 @@ public class RCSTask implements Serializable {
 	}
 
 	/**
-	 * Starts the analysis of all paths belonging to this task
+	 * Starts the analysis of all paths belonging to this task.
+	 *
+	 * @param nodesToInspect
+	 *            the nodes to inspect
+	 * @param maxProblemRate
+	 *            the max problem rate
+	 * @param maxReturnRate
+	 *            the max return rate
 	 */
 	public void analysePaths(int nodesToInspect, double maxProblemRate, double maxReturnRate) {
 		for (RCSPath path : paths) {

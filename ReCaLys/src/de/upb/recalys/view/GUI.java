@@ -245,8 +245,7 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method updates the pnlDetails to the details the user has chosen to
-	 * see.
+	 * This method updates the pnlDetails to the details the user has chosen to see.
 	 */
 	public void updateDetailsPanel() {
 		if (recalys.getExperiment() == null)
@@ -752,8 +751,8 @@ public class GUI extends JFrame {
 		gl_pnlDetails.setVerticalGroup(gl_pnlDetails.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlDetails
 				.createSequentialGroup()
 				.addGroup(gl_pnlDetails.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlDetails.createSequentialGroup().addComponent(lblShowDetails)
-								.addGap(7).addComponent(rdbtnProblem))
+						.addGroup(gl_pnlDetails.createSequentialGroup().addComponent(lblShowDetails).addGap(7)
+								.addComponent(rdbtnProblem))
 						.addGroup(gl_pnlDetails.createSequentialGroup().addGap(21).addComponent(comboBoxProblem,
 								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 				.addGroup(gl_pnlDetails.createParallelGroup(Alignment.LEADING)
@@ -884,8 +883,8 @@ public class GUI extends JFrame {
 
 	/**
 	 * This method will be triggered, if the user clicks on the
-	 * miImportRecapoIA-MenuItem to import the website structure through the
-	 * import menu.
+	 * miImportRecapoIA-MenuItem to import the website structure through the import
+	 * menu.
 	 *
 	 * @param e
 	 *            event
@@ -947,8 +946,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * Imports a whole experiment. This method will be triggered if the user
-	 * clicks on the miImportExperiment-MenuItem.
+	 * Imports a whole experiment. This method will be triggered if the user clicks
+	 * on the miImportExperiment-MenuItem.
 	 * 
 	 * @param e
 	 *            event
@@ -965,8 +964,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered, if the user clicks on the miSsd-MenuItem
-	 * to change the parameters for the systematic search detection. A
+	 * This method will be triggered, if the user clicks on the miSsd-MenuItem to
+	 * change the parameters for the systematic search detection. A
 	 * SystematicSearchDetection-Dialog will be shown.
 	 * 
 	 * @param e
@@ -979,8 +978,8 @@ public class GUI extends JFrame {
 
 	/**
 	 * This method will be triggered, if the user clicks on to the
-	 * miAnalyseAction-MenuItem to start the analysis of the menu item. The
-	 * analysis will be executed.
+	 * miAnalyseAction-MenuItem to start the analysis of the menu item. The analysis
+	 * will be executed.
 	 * 
 	 * @param e
 	 *            event
@@ -991,8 +990,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * Exports the whole experiment into an rcs-file. This method will be
-	 * triggerd if the user clicks on the miExport-MenuItem.
+	 * Exports the whole experiment into an rcs-file. This method will be triggerd
+	 * if the user clicks on the miExport-MenuItem.
 	 * 
 	 * @param e
 	 *            event
@@ -1011,8 +1010,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered, if the user clicks on the miExit-MenuItem
-	 * and then will quit the app.
+	 * This method will be triggered, if the user clicks on the miExit-MenuItem and
+	 * then will quit the app.
 	 *
 	 * @param e
 	 *            event
@@ -1022,9 +1021,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered, if the state of the
-	 * chckbxmntmShowLegendItem changed. This method will activate/deactivate
-	 * the legend for the PieGraph.
+	 * This method will be triggered, if the state of the chckbxmntmShowLegendItem
+	 * changed. This method will activate/deactivate the legend for the PieGraph.
 	 *
 	 * @param e
 	 *            the e
@@ -1036,7 +1034,7 @@ public class GUI extends JFrame {
 
 	/**
 	 * This method will be triggered, if the user clicks on the
-	 * miSaveIAGraphAsPicture-Menu Item.<br/>
+	 * miSaveIAGraphAsPicture-Menu Item.<br>
 	 * This method will open a save dialog to save the current ia-graph.
 	 * 
 	 * @author Roman Kober
@@ -1058,7 +1056,7 @@ public class GUI extends JFrame {
 
 	/**
 	 * This method will be triggered, if the user clicks on the
-	 * miSavePieGraphAsPicture-Menu Item.<br/>
+	 * miSavePieGraphAsPicture-Menu Item.<br>
 	 * This method will open a save dialog to save the current pie-graph.
 	 * 
 	 * @author Roman Kober
@@ -1079,8 +1077,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered if the user clicks on the rdbtnProblem to
-	 * show details of problems.
+	 * This method will be triggered if the user clicks on the rdbtnProblem to show
+	 * details of problems.
 	 *
 	 * @param e
 	 *            event
@@ -1113,8 +1111,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered if the user changes the currently selected
-	 * item in the comboBoxProblem to show more details for this problem.
+	 * This method will be triggered if the user changes the currently selected item
+	 * in the comboBoxProblem to show more details for this problem.
 	 *
 	 * @param e
 	 *            the e
@@ -1126,8 +1124,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered if the user changes the currently selected
-	 * item in the comboBoxTask to show more details for this task.
+	 * This method will be triggered if the user changes the currently selected item
+	 * in the comboBoxTask to show more details for this task.
 	 *
 	 * @param e
 	 *            the event
@@ -1139,9 +1137,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered if the user changes the currently selected
-	 * item in the comboBoxTaskForPieGraph to show the Pie Graph for the current
-	 * task.
+	 * This method will be triggered if the user changes the currently selected item
+	 * in the comboBoxTaskForPieGraph to show the Pie Graph for the current task.
 	 *
 	 * @param e
 	 *            the event
@@ -1167,8 +1164,8 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered if the user changes the currently selected
-	 * item in the UserForPieGraph to show the path of a specific user.
+	 * This method will be triggered if the user changes the currently selected item
+	 * in the UserForPieGraph to show the path of a specific user.
 	 *
 	 * @param e
 	 *            the event
@@ -1183,9 +1180,9 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered, if the state of the
-	 * chckbxmntmShowUserPaths changed. This method will activate/deactivate the
-	 * comboBox for choosing unique user paths.
+	 * This method will be triggered, if the state of the chckbxmntmShowUserPaths
+	 * changed. This method will activate/deactivate the comboBox for choosing
+	 * unique user paths.
 	 *
 	 * @param e
 	 *            the e
@@ -1200,9 +1197,9 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method will be triggered, if the state of the chbxShowCoverage
-	 * changed. This method will activate/deactivate the the unique
-	 * visualization of nodes that are covered within the tasks.
+	 * This method will be triggered, if the state of the chbxShowCoverage changed.
+	 * This method will activate/deactivate the the unique visualization of nodes
+	 * that are covered within the tasks.
 	 *
 	 * @param e
 	 *            the e
@@ -1245,8 +1242,8 @@ public class GUI extends JFrame {
 
 	/**
 	 * This method will be triggered, if the user clicks on the
-	 * miSaveSSDlog-MenuItem and will open a save dialog to save the current
-	 * SSD-Log if it is not empty.
+	 * miSaveSSDlog-MenuItem and will open a save dialog to save the current SSD-Log
+	 * if it is not empty.
 	 *
 	 * @param e
 	 *            event

@@ -55,8 +55,8 @@ public class CSSColorExtractor {
 	 * @param path
 	 *            the path to a CSS File in the BuildPath.
 	 * @return the fill-colors of the edge element. The first element is the
-	 *         fill-color for a Simple Path edge and the second is the
-	 *         fill-color for a normal edge.
+	 *         fill-color for a Simple Path edge and the second is the fill-color
+	 *         for a normal edge.
 	 */
 	public static Color[] getEdgeColors(String path) {
 		Color[] fillColors = new Color[3];

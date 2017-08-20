@@ -30,7 +30,14 @@ public class SystematicSearchDetectionDialog extends javax.swing.JDialog {
 	private ReCaLys recalys;
 
 	/**
-	 * Constructor: Creates new form SystematicSearchDetectionDialog
+	 * Constructor: Creates new form SystematicSearchDetectionDialog.
+	 *
+	 * @param parent
+	 *            the parent
+	 * @param modal
+	 *            the modal
+	 * @param recalys
+	 *            the recalys
 	 */
 	public SystematicSearchDetectionDialog(java.awt.Frame parent, boolean modal, ReCaLys recalys) {
 		super(parent, modal);
@@ -147,8 +154,8 @@ public class SystematicSearchDetectionDialog extends javax.swing.JDialog {
 	}
 
 	/**
-	 * This method will be triggered if the user click on the cancelButton.
-	 * Changes on the option for systematic search detection will be cancelled.
+	 * This method will be triggered if the user click on the cancelButton. Changes
+	 * on the option for systematic search detection will be cancelled.
 	 * 
 	 * @param e
 	 *            event
@@ -158,8 +165,8 @@ public class SystematicSearchDetectionDialog extends javax.swing.JDialog {
 	}
 
 	/**
-	 * This method will be triggered if the user click on the adoptButton.
-	 * Changes on the option for systematic search detection will be adopted.
+	 * This method will be triggered if the user click on the adoptButton. Changes
+	 * on the option for systematic search detection will be adopted.
 	 * 
 	 * @param e
 	 *            event

@@ -117,8 +117,8 @@ public class RCSGraph implements Serializable {
 	}
 
 	/**
-	 * Computes the distances between all nodes in the level graph. If a node is
-	 * not reachable from another node the distance will be set to -1.
+	 * Computes the distances between all nodes in the level graph. If a node is not
+	 * reachable from another node the distance will be set to -1.
 	 */
 	public void computeDistances() {
 		distanceMap = new HashMap<>();
@@ -243,8 +243,7 @@ public class RCSGraph implements Serializable {
 	}
 
 	/**
-	 * Computes how many nodes must be inspect by the systematic search
-	 * detection
+	 * Computes how many nodes must be inspect by the systematic search detection
 	 * 
 	 * @return number of nodes to inspect
 	 */
@@ -288,7 +287,8 @@ public class RCSGraph implements Serializable {
 	 */
 	public int getDistance(int source, int target) {
 		int distance = distanceMap.containsKey(new PairOfInt(source, target))
-				? distanceMap.get(new PairOfInt(source, target)) : -1;
+				? distanceMap.get(new PairOfInt(source, target))
+				: -1;
 		return distance;
 
 	}
@@ -303,9 +303,9 @@ public class RCSGraph implements Serializable {
 	}
 
 	/**
-	 * Returns the HotList: That means a list of all nodes that should be tested
-	 * in a further experiment to increase the coverage by maximum. The nodes in
-	 * this list are ordered to increase the coverage most effectivly.
+	 * Returns the HotList: That means a list of all nodes that should be tested in
+	 * a further experiment to increase the coverage by maximum. The nodes in this
+	 * list are ordered to increase the coverage most effectivly.
 	 * 
 	 * @return HotList
 	 */
@@ -370,8 +370,8 @@ public class RCSGraph implements Serializable {
 	}
 
 	/**
-	 * Resets the properties of this graph's nodes: - explored and isTarget to
-	 * false - distRating, simulatedVisits, visits, visitsOnOptimalPaths t0 0 -
+	 * Resets the properties of this graph's nodes: - explored and isTarget to false
+	 * - distRating, simulatedVisits, visits, visitsOnOptimalPaths t0 0 -
 	 * minimalLatency to -1
 	 */
 	public void resetGraphProperties() {
@@ -384,9 +384,9 @@ public class RCSGraph implements Serializable {
 	}
 
 	/**
-	 * Resets the analysis of the experiment on this graph's nodes: - explored
-	 * to false - distRating, simulatedVisits, visits, visitsOnOptimalPaths t0 0
-	 * - minimalLatency to -1 Initializes the rating-arrays to size countTask
+	 * Resets the analysis of the experiment on this graph's nodes: - explored to
+	 * false - distRating, simulatedVisits, visits, visitsOnOptimalPaths t0 0 -
+	 * minimalLatency to -1 Initializes the rating-arrays to size countTask
 	 * 
 	 * @param countTasks
 	 *            number of tasks in the experiment

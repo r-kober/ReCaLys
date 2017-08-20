@@ -34,15 +34,14 @@ public class PieGraph extends AbstractRCSGraph {
 	 */
 	public PieGraph() {
 		super("Pie Graph");
-		
-		
+
 	}
 
 	@Override
 	public void init(RCSGraph rcsGraph) {
 		super.init(rcsGraph);
 		this.addAttribute("ui.stylesheet", ResourceHandler.getURL("/stylesheets/PieGraph.css"));
-		
+
 		this.addAttribute("layout.quality", 4);
 		this.addAttribute("layout.stabilization-limit", 0.95);
 		for (Node node : this.getEachNode()) {
@@ -51,8 +50,8 @@ public class PieGraph extends AbstractRCSGraph {
 	}
 
 	/**
-	 * Import data from a {@link RCSTask}. This method imports all the data for
-	 * the pie-values and sizes for the elements.
+	 * Import data from a {@link RCSTask}. This method imports all the data for the
+	 * pie-values and sizes for the elements.
 	 *
 	 * @param task
 	 *            the task
@@ -70,8 +69,8 @@ public class PieGraph extends AbstractRCSGraph {
 			// System.out.println("new path:");
 
 			/*
-			 * increase the nominated count for the end node if the path is not
-			 * skipped. If the path is skipped then increase the skipped count.
+			 * increase the nominated count for the end node if the path is not skipped. If
+			 * the path is skipped then increase the skipped count.
 			 */
 			Node endNode = this.getNode(Integer.toString(path.getEndNode().getID()));
 			if (path.isSkipped()) {
@@ -155,9 +154,9 @@ public class PieGraph extends AbstractRCSGraph {
 	}
 
 	/**
-	 * Adds the edge labels for a specific path and ui.classes for the used
-	 * nodes and edges to be visualized in a specific way. The label consists of
-	 * the path indexes and the comprehending latencies.
+	 * Adds the edge labels for a specific path and ui.classes for the used nodes
+	 * and edges to be visualized in a specific way. The label consists of the path
+	 * indexes and the comprehending latencies.
 	 *
 	 * @param rcsPath
 	 *            the rcs path
@@ -201,7 +200,8 @@ public class PieGraph extends AbstractRCSGraph {
 				}
 
 				String currentLabel = currentEdge.getAttribute("ui.label") != null
-						? currentEdge.getAttribute("ui.label") : "";
+						? currentEdge.getAttribute("ui.label")
+						: "";
 				if (!currentLabel.isEmpty()) {
 					currentLabel += ", ";
 				}
@@ -220,8 +220,8 @@ public class PieGraph extends AbstractRCSGraph {
 	}
 
 	/**
-	 * Removes the edge labels from all edges and ui.classes from the last user
-	 * path that was selected.
+	 * Removes the edge labels from all edges and ui.classes from the last user path
+	 * that was selected.
 	 */
 	public void removeLastUserPath() {
 		for (Edge edge : this.getEachEdge()) {

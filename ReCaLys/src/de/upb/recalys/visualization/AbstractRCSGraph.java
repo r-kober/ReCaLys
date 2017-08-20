@@ -22,6 +22,10 @@ public abstract class AbstractRCSGraph extends SingleGraph {
 	protected Node start;
 
 	/**
+	 * Instantiates a new abstract RCS graph.
+	 *
+	 * @param id
+	 *            the id
 	 * @see SingleGraph#SingleGraph(String)
 	 */
 	public AbstractRCSGraph(String id) {
@@ -32,6 +36,14 @@ public abstract class AbstractRCSGraph extends SingleGraph {
 	}
 
 	/**
+	 * Instantiates a new abstract RCS graph.
+	 *
+	 * @param id
+	 *            the id
+	 * @param strictChecking
+	 *            the strict checking
+	 * @param autoCreate
+	 *            the auto create
 	 * @see SingleGraph#SingleGraph(String, boolean, boolean)
 	 */
 	public AbstractRCSGraph(String id, boolean strictChecking, boolean autoCreate) {
@@ -41,6 +53,18 @@ public abstract class AbstractRCSGraph extends SingleGraph {
 	}
 
 	/**
+	 * Instantiates a new abstract RCS graph.
+	 *
+	 * @param id
+	 *            the id
+	 * @param strictChecking
+	 *            the strict checking
+	 * @param autoCreate
+	 *            the auto create
+	 * @param initialNodeCapacity
+	 *            the initial node capacity
+	 * @param initialEdgeCapacity
+	 *            the initial edge capacity
 	 * @see SingleGraph#SingleGraph(String, boolean, boolean, int, int)
 	 */
 	public AbstractRCSGraph(String id, boolean strictChecking, boolean autoCreate, int initialNodeCapacity,
@@ -70,8 +94,8 @@ public abstract class AbstractRCSGraph extends SingleGraph {
 	 * Adds the node links recursively.
 	 *
 	 * @param node
-	 *            the source from the links to add. First call should be from
-	 *            the root node.
+	 *            the source from the links to add. First call should be from the
+	 *            root node.
 	 */
 	private void addNodeLinks(RCSNode node) {
 		RCSNode currentNode = node;
@@ -139,8 +163,7 @@ public abstract class AbstractRCSGraph extends SingleGraph {
 	 */
 	public void setLabelsToID() {
 		for (Node node : this) {
-			node.setAttribute("ui.label",
-					node.getId()/* + "/" + node.getAttribute("depth") */);
+			node.setAttribute("ui.label", node.getId()/* + "/" + node.getAttribute("depth") */);
 		}
 	}
 

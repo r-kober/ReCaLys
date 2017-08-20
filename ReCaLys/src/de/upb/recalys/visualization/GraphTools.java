@@ -17,8 +17,8 @@ public class GraphTools {
 	 *            The element on which the class should be removed
 	 * @param classToRemove
 	 *            The class to remove from the element
-	 * @return true, if the element has the class to remove and the
-	 *         classToRemove does not contain a "," <br>
+	 * @return true, if the element has the class to remove and the classToRemove
+	 *         does not contain a "," <br>
 	 *         false otherwise
 	 */
 	public static boolean removeUIClass(Element element, String classToRemove) {
@@ -52,12 +52,11 @@ public class GraphTools {
 
 	/**
 	 * Adds a specific ui.class to a graph element.
-	 * 
+	 *
 	 * @param element
 	 *            The element on which the class should be added
-	 * @param classToRemove
-	 *            The class to add to the element
-	 * @return
+	 * @param classToAdd
+	 *            the class to add
 	 */
 	public static void addUIClass(Element element, String classToAdd) {
 		String currentUIClass = element.getAttribute("ui.class");

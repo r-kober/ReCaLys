@@ -208,8 +208,8 @@ public class RCSNode implements Serializable {
 	}
 
 	/**
-	 * Returns this node's degree. The degree of a node is the number of
-	 * successors the node has in the levelgraph plus himself.
+	 * Returns this node's degree. The degree of a node is the number of successors
+	 * the node has in the levelgraph plus himself.
 	 * 
 	 * @return degree
 	 */
@@ -228,8 +228,8 @@ public class RCSNode implements Serializable {
 	}
 
 	/**
-	 * Returns the number of leaves under this node in the levelgraph. If the
-	 * node itself is a leaf the value will be 1.
+	 * Returns the number of leaves under this node in the levelgraph. If the node
+	 * itself is a leaf the value will be 1.
 	 * 
 	 * @return leavesCount
 	 */
@@ -280,8 +280,8 @@ public class RCSNode implements Serializable {
 	}
 
 	/**
-	 * Computes the minimal latency in milliseconds an average user would need
-	 * to choose the next link at this node.
+	 * Computes the minimal latency in milliseconds an average user would need to
+	 * choose the next link at this node.
 	 * 
 	 * @param time
 	 *            milliseconds the user needs to think
@@ -384,8 +384,8 @@ public class RCSNode implements Serializable {
 	}
 
 	/**
-	 * Return the LatencyWeight of this node where the LatencyWeight is the
-	 * median over all latency over all appearances of this nodes in all paths
+	 * Return the LatencyWeight of this node where the LatencyWeight is the median
+	 * over all latency over all appearances of this nodes in all paths
 	 * 
 	 * @return latency-weight
 	 */
@@ -517,8 +517,8 @@ public class RCSNode implements Serializable {
 	}
 
 	/**
-	 * Adds a visit for this node on a certain path. A node is visited if it is
-	 * on a path that belongs to this task.
+	 * Adds a visit for this node on a certain path. A node is visited if it is on a
+	 * path that belongs to this task.
 	 * 
 	 * @param taskID
 	 *            id of the task

@@ -19,10 +19,9 @@ public class ResourceHandler {
 	 * form: "url('url/to/file/in/the/system')".
 	 *
 	 * @param path
-	 *            the path within the class structure. For further information
-	 *            look at {@link java.lang.Class#getResource(String name) }
-	 * @return the url as a String or null if no resource with this name is
-	 *         found
+	 *            the path within the class structure. For further information look
+	 *            at {@link java.lang.Class#getResource(String name) }
+	 * @return the url as a String or null if no resource with this name is found
 	 */
 	public static String getURL(String path) {
 		URL url = ResourceHandler.class.getResource(path);

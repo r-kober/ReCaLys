@@ -39,9 +39,12 @@ public class MarkAllSimplePaths implements Algorithm {
 
 	/**
 	 * {@inheritDoc org.graphstream.algorithm.Algorithm#init(org.graphstream.graph.Graph)}
-	 * <br/>
-	 * This init method sets the start to the node with index 0 and the target
-	 * to the Node with the index |V|-1.
+	 * <br>
+	 * This init method sets the start to the node with index 0 and the target to
+	 * the Node with the index |V|-1.
+	 *
+	 * @param graph
+	 *            the graph
 	 */
 	@Override
 	public void init(Graph graph) {
@@ -49,9 +52,8 @@ public class MarkAllSimplePaths implements Algorithm {
 	}
 
 	/**
-	 * This method should be used instead of
-	 * {@link MarkAllSimplePaths#init(Graph)}. The Difference is that you can
-	 * determine the start and target yourself.
+	 * This method should be used instead of {@link MarkAllSimplePaths#init(Graph)}.
+	 * The Difference is that you can determine the start and target yourself.
 	 * 
 	 * @see MarkAllSimplePaths#init(Graph)
 	 *
@@ -90,12 +92,14 @@ public class MarkAllSimplePaths implements Algorithm {
 
 	/**
 	 * A recursive implementation of Depth First Search. The algorithm searches
-	 * there for cycles and all paths to the {@link MarkAllSimplePaths#target}.
-	 * This result is stored in a subgraph that contains only the edges and
-	 * nodes that would be in a simple path.
+	 * there for cycles and all paths to the {@link MarkAllSimplePaths#target}. This
+	 * result is stored in a subgraph that contains only the edges and nodes that
+	 * would be in a simple path.
 	 *
 	 * @param node
 	 *            the current node that the algorithm starts from
+	 * @param lastNode
+	 *            the last node, that the algorithm started from
 	 */
 	public void dfs(Node node, Node lastNode) {
 		boolean hasBackwardsEdge = false;
@@ -270,7 +274,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	 *            the node the algorithm starts from
 	 * @param target
 	 *            the node to which a way from the start is searched
-	 * @return true, if a way from start to target is found<br/>
+	 * @return true, if a way from start to target is found<br>
 	 *         false otherwise
 	 */
 	private boolean checkIsWay(Node start, Node target) {
@@ -284,8 +288,8 @@ public class MarkAllSimplePaths implements Algorithm {
 	}
 
 	/**
-	 * Sets the ui.class attribute for all nodes and edges, that should be
-	 * rendered specially. Especially the nodes and edges from all simple paths.
+	 * Sets the ui.class attribute for all nodes and edges, that should be rendered
+	 * specially. Especially the nodes and edges from all simple paths.
 	 *
 	 * @param graph
 	 *            the whole graph.
@@ -331,8 +335,8 @@ public class MarkAllSimplePaths implements Algorithm {
 	}
 
 	/**
-	 * Gets the subgraph containing only nodes and edges that would be in a
-	 * simple path..
+	 * Gets the subgraph containing only nodes and edges that would be in a simple
+	 * path..
 	 *
 	 * @return the subgraph
 	 */

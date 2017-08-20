@@ -4,11 +4,6 @@ import java.io.Serializable;
 
 /**
  * The Class PairOfInt implements a pair of two Integers.
- *
- * @param <A>
- *            the generic type of the first element.
- * @param <B>
- *            the generic type of the second element.
  */
 public class PairOfInt implements Serializable {
 	/**

@@ -172,8 +172,7 @@ public class ProblemTableModel implements TableModel {
 	}
 
 	/**
-	 * Removes a specific TableModelListener from this TableModel. Not
-	 * implemented.
+	 * Removes a specific TableModelListener from this TableModel. Not implemented.
 	 * 
 	 * @param tl
 	 *            TableModelListener that shall be removed

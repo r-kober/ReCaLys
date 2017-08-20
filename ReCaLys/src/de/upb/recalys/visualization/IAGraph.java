@@ -28,15 +28,14 @@ public class IAGraph extends AbstractRCSGraph {
 		this.addAttribute("ui.stylesheet", ResourceHandler.getURL("/stylesheets/IAgraph.css"));
 		this.addAttribute("layout.quality", 4);
 		this.addAttribute("layout.stabilization-limit", 0.95);
-//		 this.addAttribute("layout.force", 1);
+		// this.addAttribute("layout.force", 1);
 		for (Node node : this.getEachNode()) {
 			node.addAttribute("layout.weight", 1.5);
 		}
 	}
 
 	/**
-	 * Sets the "ui.class" attribute from the nodes that are targets to
-	 * "target".
+	 * Sets the "ui.class" attribute from the nodes that are targets to "target".
 	 *
 	 * @param tasks
 	 *            The ArrayList of all tasks
