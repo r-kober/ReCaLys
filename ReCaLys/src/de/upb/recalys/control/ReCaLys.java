@@ -82,7 +82,7 @@ public class ReCaLys {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
+			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, "Look and Feel could not be set to system default", e);
 		}
 
 		try {
@@ -96,7 +96,7 @@ public class ReCaLys {
 			setDockIconImage.invoke(application, image);
 		} catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException
 				| IllegalAccessException e) {
-			e.printStackTrace();
+			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, "OS is not Mac", e);
 		}
 		new ReCaLys();
 	}
