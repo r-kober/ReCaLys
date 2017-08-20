@@ -525,7 +525,7 @@ public class GUI extends javax.swing.JFrame {
 		miResetPieGraphView = new JMenuItem("Anzeige zurücksetzen");
 		miResetPieGraphView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miResetViewers(e);
+				miResetPieGraphViewActionPerformed(e);
 			}
 		});
 		menuPieGraph.add(miResetPieGraphView);
@@ -1244,19 +1244,40 @@ public class GUI extends javax.swing.JFrame {
 		}
 	}
 
-	protected void miResetViewers(ActionEvent e) {
-
+	/**
+	 * This method will be triggered, if the user clicks on the
+	 * miResetIAView-MenuItem and resets the View for the Pie-Graph.
+	 *
+	 * @param e
+	 *            the e
+	 */
+	protected void miResetPieGraphViewActionPerformed(ActionEvent e) {
 		if (this.pieViewer != null) {
 			pieView.getCamera().resetView();
 		}
 	}
 
+	/**
+	 * This method will be triggered, if the user clicks on the
+	 * miResetIAView-MenuItem and resets the View for the IA-Graph.
+	 *
+	 * @param e
+	 *            event
+	 */
 	protected void miResetIAViewActionPerformed(ActionEvent e) {
 		if (this.iaView != null) {
 			iaView.getCamera().resetView();
 		}
 	}
 
+	/**
+	 * This method will be triggered, if the user clicks on the
+	 * miSaveSSDlog-MenuItem and will open a save dialog to save the current
+	 * SSD-Log if it is not empty.
+	 *
+	 * @param e
+	 *            event
+	 */
 	protected void miSaveSSDlogActionPerformed(ActionEvent e) {
 		if (txtrSSDLog.getText().equals("")) {
 			JOptionPane.showMessageDialog(this, "Der SSD-Log ist leer und kann daher nicht gespeichert werden.",
