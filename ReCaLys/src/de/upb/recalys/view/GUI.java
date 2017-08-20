@@ -55,7 +55,6 @@ import org.graphstream.ui.view.Viewer;
 
 import de.upb.recalys.control.ReCaLys;
 import de.upb.recalys.helper.FileChecker;
-import de.upb.recalys.helper.ResourceHandler;
 import de.upb.recalys.model.RCSNode;
 import de.upb.recalys.model.RCSPath;
 import de.upb.recalys.model.RCSTask;
@@ -432,6 +431,19 @@ public class GUI extends JFrame {
 		menuImport.add(miSaveSSDlog);
 		menuImport.add(miImportExperiment);
 
+		separator_2 = new JSeparator();
+		menuImport.add(separator_2);
+
+		miExit = new JMenuItem("ReCaLys beenden");
+		menuImport.add(miExit);
+		miExit.setAccelerator(
+				KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		miExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miExitActionPerformed(e);
+			}
+		});
+
 		menuAnalyse = new JMenu("Auswerten");
 		menuAnalyse.setEnabled(false);
 		menuBar.add(menuAnalyse);
@@ -544,17 +556,6 @@ public class GUI extends JFrame {
 			}
 		});
 		miSavePieGraphAsPicture.setActionCommand("");
-
-		menuExit = new JMenu("Beenden");
-		menuBar.add(menuExit);
-
-		miExit = new JMenuItem("Anwendung beenden");
-		miExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miExitActionPerformed(e);
-			}
-		});
-		menuExit.add(miExit);
 
 		tbPaneMain = new JTabbedPane(JTabbedPane.TOP);
 		tbPaneMain.setBorder(new EmptyBorder(5, 0, 0, 0));
@@ -1310,7 +1311,6 @@ public class GUI extends JFrame {
 	private JMenuItem miAnalyse;
 	private JMenu menuExport;
 	private JMenuItem miExport;
-	private JMenu menuExit;
 	private JMenuItem miExit;
 	private JTabbedPane tbPaneMain;
 	private JPanel pnlOverview;
@@ -1368,5 +1368,6 @@ public class GUI extends JFrame {
 	private JLabel lblSsdlog;
 	private JMenuItem miSaveSSDlog;
 	private JScrollPane scrollPaneDetails;
+	private JSeparator separator_2;
 
 }
