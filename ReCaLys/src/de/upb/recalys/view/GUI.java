@@ -102,7 +102,7 @@ public class GUI extends JFrame {
 	 *            object of the main class of this app
 	 */
 	public GUI(ReCaLys recalys) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/ReCaLys_Logo_Windows.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/ReCaLys_Logo.png")));
 		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
 		setMinimumSize(new Dimension(800, 700));
