@@ -40,13 +40,12 @@ public class ReCaLys {
 	private double maxReturnRate = 0.15;
 	private int timeToThink = 100; // in milliseconds
 	private int nodesToInspect = -1;
-	private RCSNode root = null;
 	private GUI gui;
 	private RCSGraph graph;
 	private ArrayList<RCSTask> experiment;
 	private LinkedList<RCSNode> badList;
+	@SuppressWarnings("rawtypes")
 	private LinkedList[] hotList;
-	private File importXMLFile;
 	private int userCount = 0;
 	private ObjectInputStream ois;
 
@@ -75,7 +74,6 @@ public class ReCaLys {
 	 *            the command line arguments
 	 */
 	public static void main(String[] args) {
-		// LookAndFeelSetter.setLookAndFeel();
 		ReCaLys recalys = new ReCaLys();
 	}
 
@@ -88,7 +86,6 @@ public class ReCaLys {
 	 * @author Roman Kober
 	 */
 	public void buildGraphXML(File importFile) {
-		// isRecapoImport = true;
 		graph = new RCSGraph();
 
 		graph.buildGraph(importFile);
@@ -99,7 +96,6 @@ public class ReCaLys {
 		graph.addLeavesCount();
 		graph.computeNodesToInspect();
 		graph.computeMinimalLatencies(250);
-		root = graph.getRoot();
 
 		gui.getIaGraph().init(graph);
 		gui.getPieGraph().init(graph);
@@ -381,6 +377,7 @@ public class ReCaLys {
 	 * 
 	 * @return hotList
 	 */
+	@SuppressWarnings("rawtypes")
 	public LinkedList[] getHotList() {
 		return hotList;
 	}
