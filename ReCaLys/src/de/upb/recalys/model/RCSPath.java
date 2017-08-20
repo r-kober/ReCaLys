@@ -324,7 +324,7 @@ public class RCSPath implements Serializable {
 		// output.delete(output.lastIndexOf("->"), output.length());
 		// return output.toString();
 
-		return userID + " - " + (path.size() - 1) + (path.size() == 2 ? " Schritt - " : " Schritte - ") + duration
-				+ " - " + (isSuccessfull() ? "erfolgreich" : isSkipped() ? "übersprungen" : "nicht erfolgreich");
+		return userID + " - " + (isSuccessfull() ? "erfolgreich" : isSkipped() ? "übersprungen" : "nicht erfolgreich") + " - "
+				+ duration + " - " + (path.size() - 1) + (path.size() == 2 ? " Schritt - " : " Schritte");
 	}
 }
