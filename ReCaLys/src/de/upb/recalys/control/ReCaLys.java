@@ -1,5 +1,7 @@
 package de.upb.recalys.control;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +10,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Level;
@@ -79,6 +83,25 @@ public class ReCaLys {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
+		}
+
+		try {
+			Class<?> util = Class.forName("com.apple.eawt.Application");
+			Method getApplication = util.getMethod("getApplication", new Class[0]);
+			Object application = getApplication.invoke(util);
+			Class<?> params[] = new Class[1];
+			params[0] = Image.class;
+			Method setDockIconImage = util.getMethod("setDockIconImage", params);
+			Image image = Toolkit.getDefaultToolkit().getImage(ReCaLys.class.getResource("/ReCaLys_Logo.png"));
+			setDockIconImage.invoke(application, image);
+		} catch (ClassNotFoundException e) {
+			// log exception
+		} catch (NoSuchMethodException e) {
+			// log exception
+		} catch (InvocationTargetException e) {
+			// log exception
+		} catch (IllegalAccessException e) {
+			// log exception
 		}
 		new ReCaLys();
 	}
