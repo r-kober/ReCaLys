@@ -55,6 +55,7 @@ import org.graphstream.ui.view.Viewer;
 
 import de.upb.recalys.control.ReCaLys;
 import de.upb.recalys.helper.FileChecker;
+import de.upb.recalys.helper.ResourceHandler;
 import de.upb.recalys.model.RCSNode;
 import de.upb.recalys.model.RCSPath;
 import de.upb.recalys.model.RCSTask;
@@ -101,6 +102,7 @@ public class GUI extends JFrame {
 	 *            object of the main class of this app
 	 */
 	public GUI(ReCaLys recalys) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/ReCaLys_Logo_Windows.png")));
 		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
 		setMinimumSize(new Dimension(800, 700));
