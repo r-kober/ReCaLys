@@ -3,7 +3,6 @@ package de.upb.recalys.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -554,20 +553,6 @@ public class GUI extends javax.swing.JFrame {
 		});
 		menuExit.add(miExit);
 
-		menuTesten = new JMenu("Testen");
-		menuTesten.setFont(new Font("Lucida Grande", Font.PLAIN, 0));
-		menuBar.add(menuTesten);
-
-		miImportRecapo = new JMenuItem("import ReCaPo");
-		miImportRecapo.setAccelerator(
-				KeyStroke.getKeyStroke(KeyEvent.VK_T, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-		miImportRecapo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miImportRecapoTestActionPerformed(e);
-			}
-		});
-		menuTesten.add(miImportRecapo);
-
 		tbPaneMain = new JTabbedPane(JTabbedPane.TOP);
 		tbPaneMain.setBorder(new EmptyBorder(5, 0, 0, 0));
 		getContentPane().add(tbPaneMain, BorderLayout.CENTER);
@@ -1032,22 +1017,6 @@ public class GUI extends javax.swing.JFrame {
 		System.exit(0);
 	}
 
-	// TODO Test Menüpunkt löschen am Ende
-	protected void miImportRecapoTestActionPerformed(ActionEvent e) {
-		File iaFile = new File("example_data/dlrg_ia.xml");
-		File resultsFile = new File("example_data/dlrg_results.xml");
-
-		recalys.buildGraphXML(iaFile);
-		recalys.importResults(resultsFile);
-
-		recalys.resetAnalysis();
-		recalys.analyse();
-
-		PieGraph pieGraphTest = new PieGraph();
-		pieGraphTest.init(recalys.getGraph());
-		chckbxmntmShowCoverage.setEnabled(true);
-	}
-
 	/**
 	 * This method will be triggered, if the state of the
 	 * chckbxmntmShowLegendItem changed. This method will activate/deactivate
@@ -1372,8 +1341,6 @@ public class GUI extends javax.swing.JFrame {
 	private JLabel lblCoverageInfo;
 	private JScrollPane scrollPaneCoverage;
 	private JTable tblCoverage;
-	private JMenu menuTesten;
-	private JMenuItem miImportRecapo;
 	private JPanel pnlPieGraph;
 	private JComboBox<RCSTask> comboBoxTaskForPieGraph;
 	private JPanel pnlIAGraph;
