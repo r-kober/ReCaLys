@@ -82,7 +82,21 @@ public class ReCaLys {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
+			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, "Look and Feel could not be set to system default", e);
+		}
+
+		try {
+			Class<?> util = Class.forName("com.apple.eawt.Application");
+			Method getApplication = util.getMethod("getApplication", new Class[0]);
+			Object application = getApplication.invoke(util);
+			Class<?> params[] = new Class[1];
+			params[0] = Image.class;
+			Method setDockIconImage = util.getMethod("setDockIconImage", params);
+			Image image = Toolkit.getDefaultToolkit().getImage(ReCaLys.class.getResource("/ReCaLys_Logo.png"));
+			setDockIconImage.invoke(application, image);
+		} catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException
+				| IllegalAccessException e) {
+			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, "OS is not Mac", e);
 		}
 
 		try {
@@ -134,8 +148,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Imports a xml-file that contains the results of an experiment in ReCaPo
-	 * and creates an experiment that can be analyzed.
+	 * Imports a xml-file that contains the results of an experiment in ReCaPo and
+	 * creates an experiment that can be analyzed.
 	 * 
 	 * @param importFile
 	 *            file that shall be imported
@@ -166,8 +180,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Returns the number of nodes that must be inspected combined for detection
-	 * of systematic searching
+	 * Returns the number of nodes that must be inspected combined for detection of
+	 * systematic searching
 	 * 
 	 * @return number of nodes to inspect combined
 	 */
@@ -212,8 +226,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Sets in the time a standard user will max. need to think before choosing
-	 * a link
+	 * Sets in the time a standard user will max. need to think before choosing a
+	 * link
 	 * 
 	 * @param time
 	 *            time to think
@@ -223,8 +237,7 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Gives the time a standard user will max. need to think before choosing a
-	 * link
+	 * Gives the time a standard user will max. need to think before choosing a link
 	 * 
 	 * @return time to think
 	 */
@@ -276,9 +289,9 @@ public class ReCaLys {
 	 * @param file
 	 *            file the experiment shall be saved into
 	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because
-	 *             the import process for ReCaPo is much easier and a separate
-	 *             import and export mechanism is not needed anymore
+	 * @deprecated As of Version 1.1 this method is not used anymore, because the
+	 *             import process for ReCaPo is much easier and a separate import
+	 *             and export mechanism is not needed anymore
 	 */
 	@Deprecated
 	public void saveExperiment(File file) {
@@ -308,9 +321,9 @@ public class ReCaLys {
 	 * @param file
 	 *            experiment file
 	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because
-	 *             the import process for ReCaPo is much easier and a separate
-	 *             import and export mechanism is not needed anymore
+	 * @deprecated As of Version 1.1 this method is not used anymore, because the
+	 *             import process for ReCaPo is much easier and a separate import
+	 *             and export mechanism is not needed anymore
 	 */
 	@Deprecated
 	public void loadExperiment(File file) {
@@ -447,8 +460,8 @@ public class ReCaLys {
 	}
 
 	/**
-	 * Exports the logfile for the detection of systematic searching into the
-	 * given save directory.
+	 * Exports the logfile for the detection of systematic searching into the given
+	 * save directory.
 	 *
 	 * @param saveDirectory
 	 *            the save directory
