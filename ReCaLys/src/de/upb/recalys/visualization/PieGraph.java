@@ -34,14 +34,20 @@ public class PieGraph extends AbstractRCSGraph {
 	 */
 	public PieGraph() {
 		super("Pie Graph");
-		this.addAttribute("ui.stylesheet", ResourceHandler.getURL("/stylesheets/PieGraph.css"));
-		this.addAttribute("layout.quality", 4);
+		
+		
 	}
 
 	@Override
 	public void init(RCSGraph rcsGraph) {
 		super.init(rcsGraph);
 		this.addAttribute("ui.stylesheet", ResourceHandler.getURL("/stylesheets/PieGraph.css"));
+		
+		this.addAttribute("layout.quality", 4);
+		this.addAttribute("layout.stabilization-limit", 0.95);
+		for (Node node : this.getEachNode()) {
+			node.addAttribute("layout.weight", 3);
+		}
 	}
 
 	/**

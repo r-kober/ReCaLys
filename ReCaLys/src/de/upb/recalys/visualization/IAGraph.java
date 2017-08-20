@@ -27,8 +27,8 @@ public class IAGraph extends AbstractRCSGraph {
 		super.init(rcsGraph);
 		this.addAttribute("ui.stylesheet", ResourceHandler.getURL("/stylesheets/IAgraph.css"));
 		this.addAttribute("layout.quality", 4);
-		// this.addAttribute("layout.stabilization-limit", 0.9);
-		// this.addAttribute("layout.force", 2);
+		this.addAttribute("layout.stabilization-limit", 0.95);
+//		 this.addAttribute("layout.force", 1);
 		for (Node node : this.getEachNode()) {
 			node.addAttribute("layout.weight", 1.5);
 		}
