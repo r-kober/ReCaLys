@@ -557,16 +557,6 @@ public class GUI extends JFrame {
 		});
 		miSavePieGraphAsPicture.setActionCommand("");
 
-		mntmTesten = new JMenuItem("Testen");
-		mntmTesten.setAccelerator(
-				KeyStroke.getKeyStroke(KeyEvent.VK_T, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-		mntmTesten.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mntmTestenActionPerformed(e);
-			}
-		});
-		menuBar.add(mntmTesten);
-
 		tbPaneMain = new JTabbedPane(JTabbedPane.TOP);
 		tbPaneMain.setBorder(new EmptyBorder(5, 0, 0, 0));
 		getContentPane().add(tbPaneMain, BorderLayout.CENTER);
@@ -1377,20 +1367,4 @@ public class GUI extends JFrame {
 	private JMenuItem miSaveSSDlog;
 	private JScrollPane scrollPaneDetails;
 	private JSeparator separator_2;
-	private JMenuItem mntmTesten;
-
-	protected void mntmTestenActionPerformed(ActionEvent e) {
-		File iaFile = new File("example_data/dlrg_ia.xml");
-		File resultsFile = new File("example_data/dlrg_results.xml");
-
-		recalys.buildGraphXML(iaFile);
-		recalys.importResults(resultsFile);
-
-		recalys.resetAnalysis();
-		recalys.analyse();
-
-		PieGraph pieGraphTest = new PieGraph();
-		pieGraphTest.init(recalys.getGraph());
-		chckbxmntmShowCoverage.setEnabled(true);
-	}
 }
