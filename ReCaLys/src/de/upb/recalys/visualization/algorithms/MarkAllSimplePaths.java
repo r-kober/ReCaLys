@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Stack;
 
 import org.graphstream.algorithm.Algorithm;
 import org.graphstream.graph.Edge;
@@ -35,8 +34,6 @@ public class MarkAllSimplePaths implements Algorithm {
 	HashMap<String, Edge> backwardEdges;
 	LinkedList<Edge> currentPath;
 	LinkedList<Node> nodesOnCurrentPath;
-
-	Stack<Edge> stack = new Stack();
 
 	private final String VISITED = "visited", SIMPLE_PATH = "simplePath", CURRENT_TARGET = "currentTarget",
 			BACKWARDS_EDGE = "backwardsEdge";
@@ -112,17 +109,14 @@ public class MarkAllSimplePaths implements Algorithm {
 			Node endNode = edge.getTargetNode();
 			currentPath.add(edge);
 
-			for (Edge e : currentPath) {
-				System.out.print(e.getSourceNode().getAttribute("ui.label") + ",");
-			}
-			System.out.println((String) currentPath.getLast().getTargetNode().getAttribute("ui.label"));
+			// System.out.println("(" + edge.getSourceNode().getAttribute("ui.label") + "->"
+			// + edge.getTargetNode().getAttribute("ui.label") + ") ");
 
 			if (!edge.isLoop()) {
 				if (endNode.hasAttribute(CURRENT_TARGET)
 						|| (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode))) {
-					System.out.println(SIMPLE_PATH);
+					// System.out.println(SIMPLE_PATH);
 					// found new simple path
-
 					endNode.addAttribute(SIMPLE_PATH);
 					for (Edge edgeOnPath : currentPath) {
 						subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
@@ -131,7 +125,7 @@ public class MarkAllSimplePaths implements Algorithm {
 						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 					}
 				} else if (nodesOnCurrentPath.contains(endNode)) {
-					System.out.println("later");
+					// System.out.println("later");
 					// save backwards edge for later
 					if (node.hasAttribute(BACKWARDS_EDGE)) {
 						ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
@@ -144,7 +138,7 @@ public class MarkAllSimplePaths implements Algorithm {
 					backwardEdges.put(edge.getId(), edge);
 
 				} else if (endNode.hasAttribute(BACKWARDS_EDGE)) {
-					System.out.println(BACKWARDS_EDGE);
+					// System.out.println(BACKWARDS_EDGE);
 					// Backwards edges should be checked again
 					ArrayList<Edge> backwardsEdgesOnNode = endNode.getAttribute(BACKWARDS_EDGE);
 					ArrayList<Integer> indicesToRemove = new ArrayList<>();
@@ -159,29 +153,24 @@ public class MarkAllSimplePaths implements Algorithm {
 								edgeOnPath.addAttribute(SIMPLE_PATH);
 								edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 							}
+							subGraph.addEdge(bEdge.getId(), bEdge.getSourceNode().getId(),
+									bEdge.getTargetNode().getId(), true);
+							bEdge.addAttribute(SIMPLE_PATH);
+
 							indicesToRemove.add(i);
 							backwardEdges.remove(bEdge.getId());
 						}
 					}
 					for (int i = 0; i < indicesToRemove.size(); i++) {
-						backwardsEdgesOnNode.remove(indicesToRemove.get(i)-i);
+						backwardsEdgesOnNode.remove(indicesToRemove.get(i) - i);
 					}
 					if (backwardsEdgesOnNode.isEmpty()) {
 						endNode.removeAttribute(BACKWARDS_EDGE);
 					}
 				} else if (!endNode.hasAttribute(VISITED)) {
-					System.out.println(VISITED);
+					// System.out.println(VISITED);
 					masp(endNode);
 				}
-				// printEdge(edge);
-				// for (Node n : nodesOnCurrentPath) {
-				// System.out.print(n.getAttribute("ui.label") + ",");
-				// }
-				// System.out.println();
-				// for (Edge e : currentPath) {
-				// System.out.print(e.getSourceNode().getAttribute("ui.label") + ",");
-				// }
-				// System.out.println((String)currentPath.getLast().getTargetNode().getAttribute("ui.label"));
 
 			}
 			currentPath.removeLast();
@@ -197,32 +186,58 @@ public class MarkAllSimplePaths implements Algorithm {
 	 * {@link MarkAllSimplePaths#masp(Node)}.
 	 */
 	private void checkBackwardsEdges() {
-		// testen
-		for (Edge edge : subGraph.getEachEdge()) {
-			System.out.println((String) (edge.getSourceNode().getAttribute("ui.label")) + " -> "
-					+ (String) (edge.getTargetNode().getAttribute("ui.label")));
-		}
-	}
+		Edge edge;
+		for (String id : backwardEdges.keySet()) {
+			edge = backwardEdges.get(id);
+			// if (subGraph.getNode(edge.getSourceNode().getId()) != null
+			// && subGraph.getNode(edge.getTargetNode().getId()) != null) {
+			// System.out.println(edge.getSourceNode().getAttribute("ui.label") + "->"
+			// + edge.getTargetNode().getAttribute("ui.label") + "zu Teilgraph
+			// hinzugefügt");
+			// }
 
-	private void printEdge(Edge edge) {
-		System.out.print(edge.getSourceNode().getAttribute("ui.label") + "->"
-				+ edge.getTargetNode().getAttribute("ui.label") + " | ");
+			if (subGraph.getNode(edge.getSourceNode().getId()) != null
+					&& subGraph.getNode(edge.getTargetNode().getId()) != null) {
+				// save targetNode from subgraph with all edges
+
+				Node removedNode = edge.getTargetNode();
+				ArrayList<Edge> removedEdges = new ArrayList<>(removedNode.getDegree());
+				for (Edge e : removedNode.getEachEdge()) {
+					removedEdges.add(e);
+				}
+
+				// Remove targetNode from subgraph
+				subGraph.removeNode(edge.getTargetNode().getId());
+
+				if (checkIsWay(start.getId(), edge.getSourceNode().getId())) {
+					subGraph.addEdge(edge.getId(), edge.getSourceNode().getId(), edge.getTargetNode().getId(), true);
+				}
+
+				// Put removed elements back in the subgraph
+				subGraph.addNode(removedNode.getId());
+				for (Edge e : removedEdges) {
+					subGraph.addEdge(e.getId(), e.getSourceNode().getId(), e.getTargetNode().getId(), true);
+				}
+			}
+		}
+
 	}
 
 	/**
-	 * Checks if there is a way from start to target in the graph.
+	 * Checks if there is a way from start to target in the subGraph.
 	 *
 	 * @param start
-	 *            the node the algorithm starts from
+	 *            the id from the node the algorithm starts from
 	 * @param target
-	 *            the node to which a way from the start is searched
+	 *            the id from the node to which a way from the start is searched
 	 * @return true, if a way from start to target is found<br>
 	 *         false otherwise
 	 */
-	private boolean checkIsWay(Node start, Node target) {
-		Iterator<Node> dfsIterator = start.getDepthFirstIterator();
+	private boolean checkIsWay(String startID, String targetID) {
+		Node targetNode = subGraph.getNode(targetID);
+		Iterator<Node> dfsIterator = subGraph.getNode(startID).getDepthFirstIterator();
 		while (dfsIterator.hasNext()) {
-			if (target.equals(dfsIterator.next())) {
+			if (targetNode.equals(dfsIterator.next())) {
 				return true;
 			}
 		}
