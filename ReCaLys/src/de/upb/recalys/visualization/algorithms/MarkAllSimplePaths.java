@@ -107,15 +107,22 @@ public class MarkAllSimplePaths implements Algorithm {
 	 */
 	public void masp(Node node) {
 		node.addAttribute(VISITED);
+		nodesOnCurrentPath.add(node);
 		for (Edge edge : node.getEachLeavingEdge()) {
 			Node endNode = edge.getTargetNode();
-			if (!edge.isLoop()) {
-				currentPath.add(edge);
-				nodesOnCurrentPath.add(endNode);
+			currentPath.add(edge);
 
+			for (Edge e : currentPath) {
+				System.out.print(e.getSourceNode().getAttribute("ui.label") + ",");
+			}
+			System.out.println((String) currentPath.getLast().getTargetNode().getAttribute("ui.label"));
+
+			if (!edge.isLoop()) {
 				if (endNode.hasAttribute(CURRENT_TARGET)
 						|| (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode))) {
+					System.out.println(SIMPLE_PATH);
 					// found new simple path
+
 					endNode.addAttribute(SIMPLE_PATH);
 					for (Edge edgeOnPath : currentPath) {
 						subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
@@ -124,6 +131,7 @@ public class MarkAllSimplePaths implements Algorithm {
 						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 					}
 				} else if (nodesOnCurrentPath.contains(endNode)) {
+					System.out.println("later");
 					// save backwards edge for later
 					if (node.hasAttribute(BACKWARDS_EDGE)) {
 						ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
@@ -136,9 +144,12 @@ public class MarkAllSimplePaths implements Algorithm {
 					backwardEdges.put(edge.getId(), edge);
 
 				} else if (endNode.hasAttribute(BACKWARDS_EDGE)) {
+					System.out.println(BACKWARDS_EDGE);
 					// Backwards edges should be checked again
-					ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
-					for (Edge bEdge : backwardsEdgesOnNode) {
+					ArrayList<Edge> backwardsEdgesOnNode = endNode.getAttribute(BACKWARDS_EDGE);
+					ArrayList<Integer> indicesToRemove = new ArrayList<>();
+					for (int i = 0; i < backwardsEdgesOnNode.size(); i++) {
+						Edge bEdge = backwardsEdgesOnNode.get(i);
 						if (bEdge.getTargetNode().hasAttribute(SIMPLE_PATH)
 								&& !nodesOnCurrentPath.contains(bEdge.getTargetNode())) {
 							// found new simple path
@@ -148,20 +159,35 @@ public class MarkAllSimplePaths implements Algorithm {
 								edgeOnPath.addAttribute(SIMPLE_PATH);
 								edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 							}
-							backwardsEdgesOnNode.remove(bEdge);
+							indicesToRemove.add(i);
 							backwardEdges.remove(bEdge.getId());
 						}
+					}
+					for (int i = 0; i < indicesToRemove.size(); i++) {
+						backwardsEdgesOnNode.remove(indicesToRemove.get(i)-i);
 					}
 					if (backwardsEdgesOnNode.isEmpty()) {
 						endNode.removeAttribute(BACKWARDS_EDGE);
 					}
 				} else if (!endNode.hasAttribute(VISITED)) {
+					System.out.println(VISITED);
 					masp(endNode);
 				}
-				currentPath.removeLast();
-				nodesOnCurrentPath.removeLast();
+				// printEdge(edge);
+				// for (Node n : nodesOnCurrentPath) {
+				// System.out.print(n.getAttribute("ui.label") + ",");
+				// }
+				// System.out.println();
+				// for (Edge e : currentPath) {
+				// System.out.print(e.getSourceNode().getAttribute("ui.label") + ",");
+				// }
+				// System.out.println((String)currentPath.getLast().getTargetNode().getAttribute("ui.label"));
+
 			}
+			currentPath.removeLast();
+
 		}
+		nodesOnCurrentPath.removeLast();
 	}
 
 	/**
@@ -171,10 +197,16 @@ public class MarkAllSimplePaths implements Algorithm {
 	 * {@link MarkAllSimplePaths#masp(Node)}.
 	 */
 	private void checkBackwardsEdges() {
+		// testen
 		for (Edge edge : subGraph.getEachEdge()) {
 			System.out.println((String) (edge.getSourceNode().getAttribute("ui.label")) + " -> "
 					+ (String) (edge.getTargetNode().getAttribute("ui.label")));
 		}
+	}
+
+	private void printEdge(Edge edge) {
+		System.out.print(edge.getSourceNode().getAttribute("ui.label") + "->"
+				+ edge.getTargetNode().getAttribute("ui.label") + " | ");
 	}
 
 	/**
