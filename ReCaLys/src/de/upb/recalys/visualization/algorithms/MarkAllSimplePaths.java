@@ -226,10 +226,10 @@ public class MarkAllSimplePaths implements Algorithm {
 	/**
 	 * Checks if there is a way from start to target in the subGraph.
 	 *
-	 * @param start
-	 *            the id from the node the algorithm starts from
-	 * @param target
-	 *            the id from the node to which a way from the start is searched
+	 * @param startID
+	 *            the start ID
+	 * @param targetID
+	 *            the target ID
 	 * @return true, if a way from start to target is found<br>
 	 *         false otherwise
 	 */

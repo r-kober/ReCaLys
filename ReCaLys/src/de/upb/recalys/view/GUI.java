@@ -67,7 +67,6 @@ import de.upb.recalys.visualization.PieGraph;
 import de.upb.recalys.visualization.PieGraphLegend;
 import de.upb.recalys.visualization.view.RCSGraphMouseManager;
 import de.upb.recalys.visualization.view.RCSGraphShortcutManager;
-import java.awt.event.InputEvent;
 
 /**
  * This class defines the gui of this app.
