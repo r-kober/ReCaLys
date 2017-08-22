@@ -171,7 +171,10 @@ public class MarkAllSimplePaths implements Algorithm {
 	 * {@link MarkAllSimplePaths#masp(Node)}.
 	 */
 	private void checkBackwardsEdges() {
-
+		for (Edge edge : subGraph.getEachEdge()) {
+			System.out.println((String) (edge.getSourceNode().getAttribute("ui.label")) + " -> "
+					+ (String) (edge.getTargetNode().getAttribute("ui.label")));
+		}
 	}
 
 	/**
