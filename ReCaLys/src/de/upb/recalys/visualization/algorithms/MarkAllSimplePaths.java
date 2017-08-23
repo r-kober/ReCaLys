@@ -11,6 +11,8 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
+import scala.sys.process.ProcessBuilderImpl.Simple;
+
 /**
  * Implementation of a algorithm to mark all edges and nodes that would be on a
  * simple path and store these in a subgraph.
@@ -30,7 +32,6 @@ public class MarkAllSimplePaths implements Algorithm {
 	Node next;
 	int maxDepth;
 
-	Graph subGraph;
 	HashMap<String, Edge> backwardEdges;
 	LinkedList<Edge> currentPath;
 	LinkedList<Node> nodesOnCurrentPath;
@@ -77,17 +78,12 @@ public class MarkAllSimplePaths implements Algorithm {
 	public void compute() {
 		resetNodesAndEdges();
 
-		subGraph = new SingleGraph("sub");
-
-		subGraph.setStrict(false);
-		subGraph.setAutoCreate(true);
-
 		currentPath = new LinkedList<>();
 		nodesOnCurrentPath = new LinkedList<>();
 		backwardEdges = new HashMap<>();
 		masp(start);
 
-		setNodeAndEdgeClasses(graph, subGraph);
+		setNodeAndEdgeClasses(graph);
 	}
 
 	/**
@@ -117,8 +113,6 @@ public class MarkAllSimplePaths implements Algorithm {
 					// found new simple path
 					endNode.addAttribute(SIMPLE_PATH);
 					for (Edge edgeOnPath : currentPath) {
-						subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
-								edgeOnPath.getTargetNode().getId(), true);
 						edgeOnPath.addAttribute(SIMPLE_PATH);
 						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 					}
@@ -172,8 +166,6 @@ public class MarkAllSimplePaths implements Algorithm {
 			}
 			if (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode)) {
 				for (Edge edgeOnPath : currentPath) {
-					subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
-							edgeOnPath.getTargetNode().getId(), true);
 					edgeOnPath.addAttribute(SIMPLE_PATH);
 					edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 				}
@@ -189,18 +181,18 @@ public class MarkAllSimplePaths implements Algorithm {
 	 *
 	 * @param graph
 	 *            the whole graph.
-	 * @param subGraph
-	 *            the subGraph that represents all simple paths.
 	 */
-	private void setNodeAndEdgeClasses(Graph graph, Graph subGraph) {
-		for (Edge edge : subGraph.getEachEdge()) {
-			graph.getEdge(edge.getId()).addAttribute("ui.class", SIMPLE_PATH);
-			graph.getEdge(edge.getId()).addAttribute(SIMPLE_PATH);
+	private void setNodeAndEdgeClasses(Graph graph) {
+		for (Edge edge : graph.getEachEdge()) {
+			if (edge.hasAttribute(SIMPLE_PATH)) {
+				edge.addAttribute("ui.class", SIMPLE_PATH);
+			}
 		}
 
-		for (Node node : subGraph.getEachNode()) {
-			graph.getNode(node.getId()).addAttribute("ui.class", SIMPLE_PATH);
-			graph.getNode(node.getId()).addAttribute(SIMPLE_PATH);
+		for (Node node : graph.getEachNode()) {
+			if (node.hasAttribute(SIMPLE_PATH)) {
+				node.addAttribute("ui.class", SIMPLE_PATH);
+			}
 		}
 		start.setAttribute("ui.class", "start, " + SIMPLE_PATH);
 		target.setAttribute("ui.class", "target, " + SIMPLE_PATH);
@@ -223,16 +215,6 @@ public class MarkAllSimplePaths implements Algorithm {
 		start.setAttribute("ui.class", "start");
 		target.setAttribute("ui.class", "target");
 
-	}
-
-	/**
-	 * Gets the subgraph containing only nodes and edges that would be in a simple
-	 * path..
-	 *
-	 * @return the subgraph
-	 */
-	public Graph getSubGraph() {
-		return subGraph;
 	}
 
 	/**
