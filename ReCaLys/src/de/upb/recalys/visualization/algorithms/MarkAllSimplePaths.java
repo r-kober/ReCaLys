@@ -115,9 +115,9 @@ public class MarkAllSimplePaths implements Algorithm {
 					// save backwards edge for later
 					for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
 						Edge bEdge = (Edge) iterator.next();
-						System.out.println(bEdge);
+						// System.out.println(bEdge);
 						if (bEdge.getSourceNode().equals(endNode)) {
-							System.out.println("found start of circle");
+							// System.out.println("found start of circle");
 							break;
 						} else {
 							if (bEdge.getSourceNode().hasAttribute(BACKWARDS_EDGE)) {
@@ -162,17 +162,26 @@ public class MarkAllSimplePaths implements Algorithm {
 		ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
 		for (Edge edge : backwardsEdgesOnNode) {
 			Node endNode = edge.getTargetNode();
-			currentPath.add(edge);
-			if (endNode.hasAttribute(BACKWARDS_EDGE)) {
-				bEdgeDFS(endNode);
-			}
-			if (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode)) {
-				for (Edge edgeOnPath : currentPath) {
-					edgeOnPath.addAttribute(SIMPLE_PATH);
-					edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
+			if (!nodesOnCurrentPath.contains(endNode)) {
+				currentPath.add(edge);
+				if (endNode.hasAttribute(SIMPLE_PATH)) {
+					for (Edge edgeOnPath : currentPath) {
+						edgeOnPath.addAttribute(SIMPLE_PATH);
+						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
+						if (edgeOnPath.hasAttribute(BACKWARDS_EDGE)) {
+							ArrayList<Edge> arrayList = edgeOnPath.getSourceNode().getAttribute(BACKWARDS_EDGE);
+							arrayList.remove(edgeOnPath);
+							if (arrayList.isEmpty()) {
+								edgeOnPath.getSourceNode().removeAttribute(BACKWARDS_EDGE);
+							}
+						}
+					}
 				}
+				if (endNode.hasAttribute(BACKWARDS_EDGE)) {
+					bEdgeDFS(endNode);
+				}
+				currentPath.removeLast();
 			}
-			currentPath.removeLast();
 		}
 		nodesOnCurrentPath.removeLast();
 	}
