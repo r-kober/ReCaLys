@@ -1,7 +1,6 @@
 package de.upb.recalys.visualization.algorithms;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -9,9 +8,6 @@ import org.graphstream.algorithm.Algorithm;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.SingleGraph;
-
-import scala.sys.process.ProcessBuilderImpl.Simple;
 
 /**
  * Implementation of a algorithm to mark all edges and nodes that would be on a
@@ -32,7 +28,6 @@ public class MarkAllSimplePaths implements Algorithm {
 	Node next;
 	int maxDepth;
 
-	HashMap<String, Edge> backwardEdges;
 	LinkedList<Edge> currentPath;
 	LinkedList<Node> nodesOnCurrentPath;
 
@@ -80,7 +75,6 @@ public class MarkAllSimplePaths implements Algorithm {
 
 		currentPath = new LinkedList<>();
 		nodesOnCurrentPath = new LinkedList<>();
-		backwardEdges = new HashMap<>();
 		masp(start);
 
 		setNodeAndEdgeClasses(graph);
@@ -96,7 +90,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	 * @param node
 	 *            the current node that the algorithm starts from
 	 */
-	public void masp(Node node) {
+	private void masp(Node node) {
 		node.addAttribute(VISITED);
 		nodesOnCurrentPath.add(node);
 		for (Edge edge : node.getEachLeavingEdge()) {
@@ -119,16 +113,24 @@ public class MarkAllSimplePaths implements Algorithm {
 				} else if (nodesOnCurrentPath.contains(endNode)) {
 					// System.out.println("later");
 					// save backwards edge for later
-					if (node.hasAttribute(BACKWARDS_EDGE)) {
-						ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
-						backwardsEdgesOnNode.add(edge);
-					} else {
-						ArrayList<Edge> backwardsEdgesOnNode = new ArrayList<>(node.getOutDegree());
-						backwardsEdgesOnNode.add(edge);
-						node.addAttribute(BACKWARDS_EDGE, backwardsEdgesOnNode);
+					for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
+						Edge bEdge = (Edge) iterator.next();
+						System.out.println(bEdge);
+						if (bEdge.getSourceNode().equals(endNode)) {
+							System.out.println("found start of circle");
+							break;
+						} else {
+							if (bEdge.getSourceNode().hasAttribute(BACKWARDS_EDGE)) {
+								ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
+								backwardsEdgesOnNode.add(bEdge);
+							} else {
+								ArrayList<Edge> backwardsEdgesOnNode = new ArrayList<>(
+										bEdge.getSourceNode().getOutDegree());
+								backwardsEdgesOnNode.add(bEdge);
+								bEdge.getSourceNode().addAttribute(BACKWARDS_EDGE, backwardsEdgesOnNode);
+							}
+						}
 					}
-					backwardEdges.put(edge.getId(), edge);
-
 				} else if (endNode.hasAttribute(BACKWARDS_EDGE)) {
 					// System.out.println(BACKWARDS_EDGE);
 					// Backwards edges should be checked recursively again on all adjacent backwards
@@ -149,7 +151,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	 * A DFS Implementation for backwardsedges. Uses only edges that are stored as
 	 * backwards edges in nodes. Hence edges that were visited already but ended in
 	 * nodes that were on the current path that was used. These edges could lead to
-	 * a simple path if the path to them don't include the endNode of the edge. 
+	 * a simple path if the path to them don't include the endNode of the edge.
 	 *
 	 * @param node
 	 *            the node the dfs is recursively called on.
