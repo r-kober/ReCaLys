@@ -86,7 +86,6 @@ public class MarkAllSimplePaths implements Algorithm {
 		nodesOnCurrentPath = new LinkedList<>();
 		backwardEdges = new HashMap<>();
 		masp(start);
-		checkBackwardsEdges();
 
 		setNodeAndEdgeClasses(graph, subGraph);
 	}
@@ -138,34 +137,9 @@ public class MarkAllSimplePaths implements Algorithm {
 
 				} else if (endNode.hasAttribute(BACKWARDS_EDGE)) {
 					// System.out.println(BACKWARDS_EDGE);
-					// Backwards edges should be checked again
-					ArrayList<Edge> backwardsEdgesOnNode = endNode.getAttribute(BACKWARDS_EDGE);
-					ArrayList<Integer> indicesToRemove = new ArrayList<>();
-					for (int i = 0; i < backwardsEdgesOnNode.size(); i++) {
-						Edge bEdge = backwardsEdgesOnNode.get(i);
-						if (bEdge.getTargetNode().hasAttribute(SIMPLE_PATH)
-								&& !nodesOnCurrentPath.contains(bEdge.getTargetNode())) {
-							// found new simple path
-							for (Edge edgeOnPath : currentPath) {
-								subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
-										edgeOnPath.getTargetNode().getId(), true);
-								edgeOnPath.addAttribute(SIMPLE_PATH);
-								edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
-							}
-							subGraph.addEdge(bEdge.getId(), bEdge.getSourceNode().getId(),
-									bEdge.getTargetNode().getId(), true);
-							bEdge.addAttribute(SIMPLE_PATH);
-
-							indicesToRemove.add(i);
-							backwardEdges.remove(bEdge.getId());
-						}
-					}
-					for (int i = 0; i < indicesToRemove.size(); i++) {
-						backwardsEdgesOnNode.remove(indicesToRemove.get(i) - i);
-					}
-					if (backwardsEdgesOnNode.isEmpty()) {
-						endNode.removeAttribute(BACKWARDS_EDGE);
-					}
+					// Backwards edges should be checked recursively again on all adjacent backwards
+					// edges
+					bEdgeDFS(endNode);
 				} else if (!endNode.hasAttribute(VISITED)) {
 					// System.out.println(VISITED);
 					masp(endNode);
@@ -173,74 +147,40 @@ public class MarkAllSimplePaths implements Algorithm {
 
 			}
 			currentPath.removeLast();
-
 		}
 		nodesOnCurrentPath.removeLast();
 	}
 
 	/**
-	 * Check if backwards edges in the subgraph add a simple path. If so the
-	 * backwards edge will be added to the subgraph and get the attribute
-	 * "simplePath" in the graph. This should be called after
-	 * {@link MarkAllSimplePaths#masp(Node)}.
-	 */
-	private void checkBackwardsEdges() {
-		Edge edge;
-		for (String id : backwardEdges.keySet()) {
-			edge = backwardEdges.get(id);
-			// if (subGraph.getNode(edge.getSourceNode().getId()) != null
-			// && subGraph.getNode(edge.getTargetNode().getId()) != null) {
-			// System.out.println(edge.getSourceNode().getAttribute("ui.label") + "->"
-			// + edge.getTargetNode().getAttribute("ui.label") + "zu Teilgraph
-			// hinzugefügt");
-			// }
-
-			if (subGraph.getNode(edge.getSourceNode().getId()) != null
-					&& subGraph.getNode(edge.getTargetNode().getId()) != null) {
-				// save targetNode from subgraph with all edges
-
-				Node removedNode = edge.getTargetNode();
-				ArrayList<Edge> removedEdges = new ArrayList<>(removedNode.getDegree());
-				for (Edge e : removedNode.getEachEdge()) {
-					removedEdges.add(e);
-				}
-
-				// Remove targetNode from subgraph
-				subGraph.removeNode(edge.getTargetNode().getId());
-
-				if (checkIsWay(start.getId(), edge.getSourceNode().getId())) {
-					subGraph.addEdge(edge.getId(), edge.getSourceNode().getId(), edge.getTargetNode().getId(), true);
-				}
-
-				// Put removed elements back in the subgraph
-				subGraph.addNode(removedNode.getId());
-				for (Edge e : removedEdges) {
-					subGraph.addEdge(e.getId(), e.getSourceNode().getId(), e.getTargetNode().getId(), true);
-				}
-			}
-		}
-
-	}
-
-	/**
-	 * Checks if there is a way from start to target in the subGraph.
+	 * A DFS Implementation for backwardsedges. Uses only edges that are stored as
+	 * backwards edges in nodes. Hence edges that were visited already but ended in
+	 * nodes that were on the current path that was used. These edges could lead to
+	 * a simple path if the path to them don't include the endNode of the edge. 
 	 *
-	 * @param startID
-	 *            the start ID
-	 * @param targetID
-	 *            the target ID
-	 * @return true, if a way from start to target is found<br>
-	 *         false otherwise
+	 * @param node
+	 *            the node the dfs is recursively called on.
 	 */
-	private boolean checkIsWay(String startID, String targetID) {
-		Node targetNode = subGraph.getNode(targetID);
-		Iterator<Node> dfsIterator = subGraph.getNode(startID).getDepthFirstIterator();
-		while (dfsIterator.hasNext()) {
-			if (targetNode.equals(dfsIterator.next())) {
-				return true;
+	private void bEdgeDFS(Node node) {
+		nodesOnCurrentPath.add(node);
+
+		ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
+		for (Edge edge : backwardsEdgesOnNode) {
+			Node endNode = edge.getTargetNode();
+			currentPath.add(edge);
+			if (endNode.hasAttribute(BACKWARDS_EDGE)) {
+				bEdgeDFS(endNode);
 			}
+			if (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode)) {
+				for (Edge edgeOnPath : currentPath) {
+					subGraph.addEdge(edgeOnPath.getId(), edgeOnPath.getSourceNode().getId(),
+							edgeOnPath.getTargetNode().getId(), true);
+					edgeOnPath.addAttribute(SIMPLE_PATH);
+					edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
+				}
+			}
+			currentPath.removeLast();
 		}
-		return false;
+		nodesOnCurrentPath.removeLast();
 	}
 
 	/**
