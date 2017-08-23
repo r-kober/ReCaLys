@@ -85,7 +85,6 @@ public class MarkAllSimplePaths implements Algorithm {
 		currentPath = new LinkedList<>();
 		nodesOnCurrentPath = new LinkedList<>();
 		backwardEdges = new HashMap<>();
-		nodesOnCurrentPath.add(start);
 		masp(start);
 		checkBackwardsEdges();
 

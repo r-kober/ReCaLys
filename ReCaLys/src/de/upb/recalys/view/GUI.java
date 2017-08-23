@@ -862,10 +862,12 @@ public class GUI extends JFrame {
 		pnlPieGraphComboBoxes.setLayout(new BorderLayout(0, 0));
 
 		comboBoxTaskForPieGraph = new JComboBox<RCSTask>();
+		comboBoxTaskForPieGraph.setMaximumRowCount(10);
 		pnlPieGraphComboBoxes.add(comboBoxTaskForPieGraph, BorderLayout.NORTH);
 		comboBoxTaskForPieGraph.setSelectedIndex(-1);
 
 		comboBoxUserForPieGraph = new JComboBox<RCSPath>();
+		comboBoxUserForPieGraph.setMaximumRowCount(10);
 		comboBoxUserForPieGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comboBoxUserForPieGraphActionPerformed(e);
