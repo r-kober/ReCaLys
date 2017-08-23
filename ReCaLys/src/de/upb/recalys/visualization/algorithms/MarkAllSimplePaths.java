@@ -1,8 +1,10 @@
 package de.upb.recalys.visualization.algorithms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 import org.graphstream.algorithm.Algorithm;
 import org.graphstream.graph.Edge;
@@ -29,7 +31,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	int maxDepth;
 
 	LinkedList<Edge> currentPath;
-	LinkedList<Node> nodesOnCurrentPath;
+	HashMap<String, Node> nodesOnCurrentPath;
 
 	private final String VISITED = "visited", SIMPLE_PATH = "simplePath", CURRENT_TARGET = "currentTarget",
 			BACKWARDS_EDGE = "backwardsEdge";
@@ -74,7 +76,7 @@ public class MarkAllSimplePaths implements Algorithm {
 		resetNodesAndEdges();
 
 		currentPath = new LinkedList<>();
-		nodesOnCurrentPath = new LinkedList<>();
+		nodesOnCurrentPath = new HashMap<>();
 		masp(start);
 
 		setNodeAndEdgeClasses(graph);
@@ -92,7 +94,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	 */
 	private void masp(Node node) {
 		node.addAttribute(VISITED);
-		nodesOnCurrentPath.add(node);
+		nodesOnCurrentPath.put(node.getId(), node);
 		for (Edge edge : node.getEachLeavingEdge()) {
 			Node endNode = edge.getTargetNode();
 			currentPath.add(edge);
@@ -102,7 +104,7 @@ public class MarkAllSimplePaths implements Algorithm {
 
 			if (!edge.isLoop()) {
 				if (endNode.hasAttribute(CURRENT_TARGET)
-						|| (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.contains(endNode))) {
+						|| (endNode.hasAttribute(SIMPLE_PATH) && !nodesOnCurrentPath.containsKey(endNode.getId()))) {
 					// System.out.println(SIMPLE_PATH);
 					// found new simple path
 					endNode.addAttribute(SIMPLE_PATH);
@@ -110,7 +112,7 @@ public class MarkAllSimplePaths implements Algorithm {
 						edgeOnPath.addAttribute(SIMPLE_PATH);
 						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
 					}
-				} else if (nodesOnCurrentPath.contains(endNode)) {
+				} else if (nodesOnCurrentPath.containsKey(endNode.getId())) {
 					// System.out.println("later");
 					// save backwards edge for later
 					for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
@@ -144,7 +146,13 @@ public class MarkAllSimplePaths implements Algorithm {
 			}
 			currentPath.removeLast();
 		}
-		nodesOnCurrentPath.removeLast();
+		try {
+			nodesOnCurrentPath.remove(currentPath.getLast().getTargetNode().getId());
+		} catch (NoSuchElementException e) {
+			nodesOnCurrentPath.remove(start.getId());
+		}
+		System.out.println(nodesOnCurrentPath);
+
 	}
 
 	/**
@@ -157,12 +165,12 @@ public class MarkAllSimplePaths implements Algorithm {
 	 *            the node the dfs is recursively called on.
 	 */
 	private void bEdgeDFS(Node node) {
-		nodesOnCurrentPath.add(node);
+		nodesOnCurrentPath.put(node.getId(), node);
 
 		ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
 		for (Edge edge : backwardsEdgesOnNode) {
 			Node endNode = edge.getTargetNode();
-			if (!nodesOnCurrentPath.contains(endNode)) {
+			if (!nodesOnCurrentPath.containsKey(endNode.getId())) {
 				currentPath.add(edge);
 				if (endNode.hasAttribute(SIMPLE_PATH)) {
 					for (Edge edgeOnPath : currentPath) {
@@ -183,7 +191,7 @@ public class MarkAllSimplePaths implements Algorithm {
 				currentPath.removeLast();
 			}
 		}
-		nodesOnCurrentPath.removeLast();
+		nodesOnCurrentPath.remove(currentPath.getLast().getTargetNode().getId());
 	}
 
 	/**
