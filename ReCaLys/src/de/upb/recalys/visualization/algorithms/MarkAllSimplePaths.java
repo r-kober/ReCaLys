@@ -118,19 +118,19 @@ public class MarkAllSimplePaths implements Algorithm {
 					// System.out.println("later");
 					// save backwards edge for later
 					for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
-						Edge bEdge = (Edge) iterator.next();
+						Edge cEdge = (Edge) iterator.next();
 						// System.out.println(bEdge);
-						if (bEdge.getSourceNode().equals(endNode)) {
+						if (cEdge.getSourceNode().equals(endNode)) {
 							// System.out.println("found start of circle");
 							break;
 						} else {
-							if (bEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
+							if (cEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
 								HashMap<String, Edge> circleEdgesOnNode = node.getAttribute(CIRCLE_EDGE);
-								circleEdgesOnNode.put(bEdge.getId(), bEdge);
+								circleEdgesOnNode.put(cEdge.getId(), cEdge);
 							} else {
 								HashMap<String, Edge> circleEdgesOnNode = new HashMap<>();
-								circleEdgesOnNode.put(bEdge.getId(), bEdge);
-								bEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgesOnNode);
+								circleEdgesOnNode.put(cEdge.getId(), cEdge);
+								cEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgesOnNode);
 							}
 						}
 					}
@@ -199,19 +199,19 @@ public class MarkAllSimplePaths implements Algorithm {
 				// System.out.println("later");
 				// save backwards edge for later
 				for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
-					Edge bEdge = (Edge) iterator.next();
+					Edge cEdge = (Edge) iterator.next();
 					// System.out.println(bEdge);
-					if (bEdge.getSourceNode().equals(endNode)) {
+					if (cEdge.getSourceNode().equals(endNode)) {
 						// System.out.println("found start of circle");
 						break;
 					} else {
-						if (bEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
+						if (cEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
 							HashMap<String, Edge> circleEdgeAttribute = node.getAttribute(CIRCLE_EDGE);
-							circleEdgeAttribute.put(bEdge.getId(), bEdge);
+							circleEdgeAttribute.put(cEdge.getId(), cEdge);
 						} else {
 							HashMap<String, Edge> circleEdgeAttribute = new HashMap<>();
-							circleEdgeAttribute.put(bEdge.getId(), bEdge);
-							bEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgeAttribute);
+							circleEdgeAttribute.put(cEdge.getId(), cEdge);
+							cEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgeAttribute);
 						}
 					}
 				}
