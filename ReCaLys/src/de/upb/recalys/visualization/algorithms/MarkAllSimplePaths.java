@@ -5,11 +5,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.graphstream.algorithm.Algorithm;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
+
+import de.upb.recalys.control.ReCaLys;
 
 /**
  * Implementation of a algorithm to mark all edges and nodes that would be on a
@@ -34,7 +38,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	HashMap<String, Node> nodesOnCurrentPath;
 
 	private final String VISITED = "visited", SIMPLE_PATH = "simplePath", CURRENT_TARGET = "currentTarget",
-			BACKWARDS_EDGE = "backwardsEdge";
+			CIRCLE_EDGE = "circleEdge";
 
 	/**
 	 * {@inheritDoc org.graphstream.algorithm.Algorithm#init(org.graphstream.graph.Graph)}
@@ -122,18 +126,18 @@ public class MarkAllSimplePaths implements Algorithm {
 							// System.out.println("found start of circle");
 							break;
 						} else {
-							if (bEdge.getSourceNode().hasAttribute(BACKWARDS_EDGE)) {
-								ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
-								backwardsEdgesOnNode.add(bEdge);
+							if (bEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
+								ArrayList<Edge> circleEdgesOnNode = node.getAttribute(CIRCLE_EDGE);
+								circleEdgesOnNode.add(bEdge);
 							} else {
-								ArrayList<Edge> backwardsEdgesOnNode = new ArrayList<>(
+								ArrayList<Edge> circleEdgesOnNode = new ArrayList<>(
 										bEdge.getSourceNode().getOutDegree());
-								backwardsEdgesOnNode.add(bEdge);
-								bEdge.getSourceNode().addAttribute(BACKWARDS_EDGE, backwardsEdgesOnNode);
+								circleEdgesOnNode.add(bEdge);
+								bEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgesOnNode);
 							}
 						}
 					}
-				} else if (endNode.hasAttribute(BACKWARDS_EDGE)) {
+				} else if (endNode.hasAttribute(CIRCLE_EDGE)) {
 					// System.out.println(BACKWARDS_EDGE);
 					// Backwards edges should be checked recursively again on all adjacent backwards
 					// edges
@@ -149,14 +153,17 @@ public class MarkAllSimplePaths implements Algorithm {
 		try {
 			nodesOnCurrentPath.remove(currentPath.getLast().getTargetNode().getId());
 		} catch (NoSuchElementException e) {
-			nodesOnCurrentPath.remove(start.getId());
-		}
-		System.out.println(nodesOnCurrentPath);
+			if (nodesOnCurrentPath.containsKey(start.getId())) {
+				nodesOnCurrentPath.remove(start.getId());
+			} else {
+				Logger.getLogger(MarkAllSimplePaths.class.getName()).log(Level.SEVERE, null, e);
+			}
 
+		}
 	}
 
 	/**
-	 * A DFS Implementation for backwardsedges. Uses only edges that are stored as
+	 * A DFS Implementation for edges that belong to a circle. Uses only edges that are stored as
 	 * backwards edges in nodes. Hence edges that were visited already but ended in
 	 * nodes that were on the current path that was used. These edges could lead to
 	 * a simple path if the path to them don't include the endNode of the edge.
@@ -167,8 +174,8 @@ public class MarkAllSimplePaths implements Algorithm {
 	private void bEdgeDFS(Node node) {
 		nodesOnCurrentPath.put(node.getId(), node);
 
-		ArrayList<Edge> backwardsEdgesOnNode = node.getAttribute(BACKWARDS_EDGE);
-		for (Edge edge : backwardsEdgesOnNode) {
+		ArrayList<Edge> circleEdgesOnNode = node.getAttribute(CIRCLE_EDGE);
+		for (Edge edge : circleEdgesOnNode) {
 			Node endNode = edge.getTargetNode();
 			if (!nodesOnCurrentPath.containsKey(endNode.getId())) {
 				currentPath.add(edge);
@@ -176,16 +183,16 @@ public class MarkAllSimplePaths implements Algorithm {
 					for (Edge edgeOnPath : currentPath) {
 						edgeOnPath.addAttribute(SIMPLE_PATH);
 						edgeOnPath.getSourceNode().addAttribute(SIMPLE_PATH);
-						if (edgeOnPath.hasAttribute(BACKWARDS_EDGE)) {
-							ArrayList<Edge> arrayList = edgeOnPath.getSourceNode().getAttribute(BACKWARDS_EDGE);
+						if (edgeOnPath.hasAttribute(CIRCLE_EDGE)) {
+							ArrayList<Edge> arrayList = edgeOnPath.getSourceNode().getAttribute(CIRCLE_EDGE);
 							arrayList.remove(edgeOnPath);
 							if (arrayList.isEmpty()) {
-								edgeOnPath.getSourceNode().removeAttribute(BACKWARDS_EDGE);
+								edgeOnPath.getSourceNode().removeAttribute(CIRCLE_EDGE);
 							}
 						}
 					}
 				}
-				if (endNode.hasAttribute(BACKWARDS_EDGE)) {
+				if (endNode.hasAttribute(CIRCLE_EDGE)) {
 					bEdgeDFS(endNode);
 				}
 				currentPath.removeLast();
@@ -229,7 +236,7 @@ public class MarkAllSimplePaths implements Algorithm {
 			node.removeAttribute("ui.class");
 			node.removeAttribute(VISITED);
 			node.removeAttribute(SIMPLE_PATH);
-			node.removeAttribute(BACKWARDS_EDGE);
+			node.removeAttribute(CIRCLE_EDGE);
 		}
 		start.setAttribute("ui.class", "start");
 		target.setAttribute("ui.class", "target");
