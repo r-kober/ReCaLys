@@ -304,16 +304,6 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * This method sets menuExport en- or disabled.
-	 *
-	 * @param b
-	 *            true, if menu shall be enabled, else false
-	 */
-	public void setExportMenuEnabled(boolean b) {
-		menuExport.setEnabled(b);
-	}
-
-	/**
 	 * This method sets menuGraph en- or disabled.
 	 *
 	 * @param b
@@ -412,14 +402,6 @@ public class GUI extends JFrame {
 		separatorImport2 = new JSeparator();
 		menuImport.add(separatorImport2);
 
-		miImportExperiment = new JMenuItem("Auswertung importieren");
-		miImportExperiment.setVisible(false);
-		miImportExperiment.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miImportExperimentActionPerformed(e);
-			}
-		});
-
 		miSaveSSDlog = new JMenuItem("SSD-Log speichern");
 		miSaveSSDlog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -428,7 +410,6 @@ public class GUI extends JFrame {
 		});
 		miSaveSSDlog.setEnabled(false);
 		menuImport.add(miSaveSSDlog);
-		menuImport.add(miImportExperiment);
 
 		separator_2 = new JSeparator();
 		menuImport.add(separator_2);
@@ -462,19 +443,6 @@ public class GUI extends JFrame {
 			}
 		});
 		menuAnalyse.add(miAnalyse);
-
-		menuExport = new JMenu("Sichern");
-		menuExport.setVisible(false);
-		menuExport.setEnabled(false);
-		menuBar.add(menuExport);
-
-		miExport = new JMenuItem("Auswertung sichern");
-		miExport.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miExportActionPerformed(e);
-			}
-		});
-		menuExport.add(miExport);
 
 		menuIAGraph = new JMenu("Strukturgraph");
 		menuIAGraph.setEnabled(false);
@@ -948,24 +916,6 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * Imports a whole experiment. This method will be triggered if the user clicks
-	 * on the miImportExperiment-MenuItem.
-	 * 
-	 * @param e
-	 *            event
-	 */
-	protected void miImportExperimentActionPerformed(ActionEvent e) {
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("RCS-Dateien", "rcs");
-		chooser.setFileFilter(filter);
-
-		int returnVal = chooser.showOpenDialog(this);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			recalys.loadExperiment(chooser.getSelectedFile());
-		}
-	}
-
-	/**
 	 * This method will be triggered, if the user clicks on the miSsd-MenuItem to
 	 * change the parameters for the systematic search detection. A
 	 * SystematicSearchDetection-Dialog will be shown.
@@ -989,26 +939,6 @@ public class GUI extends JFrame {
 	protected void miAnalyseActionPerformed(ActionEvent e) {
 		recalys.resetAnalysis();
 		recalys.analyse();
-	}
-
-	/**
-	 * Exports the whole experiment into an rcs-file. This method will be triggerd
-	 * if the user clicks on the miExport-MenuItem.
-	 * 
-	 * @param e
-	 *            event
-	 */
-	protected void miExportActionPerformed(ActionEvent e) {
-		JFileChooser chooser = new JFileChooser();
-		int returnVal = chooser.showSaveDialog(this);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			String fileName = chooser.getSelectedFile().getPath();
-			if (!fileName.endsWith(".rcs"))
-				fileName += ".rcs";
-			File file = new File(fileName);
-
-			recalys.saveExperiment(file);
-		}
 	}
 
 	/**
@@ -1304,12 +1234,9 @@ public class GUI extends JFrame {
 	private JMenuItem miImportRecapoIA;
 	private JMenuItem miImportResults;
 	private JSeparator separatorImport2;
-	private JMenuItem miImportExperiment;
 	private JMenu menuAnalyse;
 	private JMenuItem miSsd;
 	private JMenuItem miAnalyse;
-	private JMenu menuExport;
-	private JMenuItem miExport;
 	private JMenuItem miExit;
 	private JTabbedPane tbPaneMain;
 	private JPanel pnlOverview;

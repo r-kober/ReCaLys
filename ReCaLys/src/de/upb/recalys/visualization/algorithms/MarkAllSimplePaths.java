@@ -1,6 +1,5 @@
 package de.upb.recalys.visualization.algorithms;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -172,7 +171,7 @@ public class MarkAllSimplePaths implements Algorithm {
 	private void cEdgeDFS(Node node) {
 		nodesOnCurrentPath.put(node.getId(), node);
 
-		HashMap<String,Edge> circleEdgesOnNode = node.getAttribute(CIRCLE_EDGE);
+		HashMap<String, Edge> circleEdgesOnNode = node.getAttribute(CIRCLE_EDGE);
 		for (String edgeID : circleEdgesOnNode.keySet()) {
 			Edge edge = circleEdgesOnNode.get(edgeID);
 			Node endNode = edge.getTargetNode();
@@ -195,26 +194,28 @@ public class MarkAllSimplePaths implements Algorithm {
 					cEdgeDFS(endNode);
 				}
 				currentPath.removeLast();
-//			} else {
-//				// System.out.println("later");
-//				// save backwards edge for later
-//				for (Iterator<Edge> iterator = currentPath.descendingIterator(); iterator.hasNext();) {
-//					Edge cEdge = (Edge) iterator.next();
-//					// System.out.println(bEdge);
-//					if (cEdge.getSourceNode().equals(endNode) || cEdge.getSourceNode().hasAttribute(SIMPLE_PATH)) {
-//						// System.out.println("found start of circle");
-//						break;
-//					} else {
-//						if (cEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
-//							HashMap<String, Edge> circleEdgeAttribute = node.getAttribute(CIRCLE_EDGE);
-//							circleEdgeAttribute.put(cEdge.getId(), cEdge);
-//						} else {
-//							HashMap<String, Edge> circleEdgeAttribute = new HashMap<>();
-//							circleEdgeAttribute.put(cEdge.getId(), cEdge);
-//							cEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgeAttribute);
-//						}
-//					}
-//				}
+				// } else {
+				// // System.out.println("later");
+				// // save backwards edge for later
+				// for (Iterator<Edge> iterator = currentPath.descendingIterator();
+				// iterator.hasNext();) {
+				// Edge cEdge = (Edge) iterator.next();
+				// // System.out.println(bEdge);
+				// if (cEdge.getSourceNode().equals(endNode) ||
+				// cEdge.getSourceNode().hasAttribute(SIMPLE_PATH)) {
+				// // System.out.println("found start of circle");
+				// break;
+				// } else {
+				// if (cEdge.getSourceNode().hasAttribute(CIRCLE_EDGE)) {
+				// HashMap<String, Edge> circleEdgeAttribute = node.getAttribute(CIRCLE_EDGE);
+				// circleEdgeAttribute.put(cEdge.getId(), cEdge);
+				// } else {
+				// HashMap<String, Edge> circleEdgeAttribute = new HashMap<>();
+				// circleEdgeAttribute.put(cEdge.getId(), cEdge);
+				// cEdge.getSourceNode().addAttribute(CIRCLE_EDGE, circleEdgeAttribute);
+				// }
+				// }
+				// }
 			}
 		}
 		nodesOnCurrentPath.remove(currentPath.getLast().getTargetNode().getId());

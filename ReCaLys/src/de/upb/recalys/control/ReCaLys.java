@@ -3,12 +3,8 @@ package de.upb.recalys.control;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -26,7 +22,6 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import de.upb.recalys.model.ExperimentFile;
 import de.upb.recalys.model.RCSGraph;
 import de.upb.recalys.model.RCSNode;
 import de.upb.recalys.model.RCSTask;
@@ -53,7 +48,6 @@ public class ReCaLys {
 	@SuppressWarnings("rawtypes")
 	private LinkedList[] hotList;
 	private int userCount = 0;
-	private ObjectInputStream ois;
 
 	/**
 	 * Constructor: Creates a new ReCaLys-object
@@ -161,7 +155,6 @@ public class ReCaLys {
 
 			gui.updateGUI();
 			gui.setAnalyseMenuEnabled(true);
-			gui.setExportMenuEnabled(true);
 			gui.setPieGraphMenuItemsEnabled(true);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, e);
@@ -272,81 +265,6 @@ public class ReCaLys {
 		complete = true;
 		updateGUI();
 		updateSystematicSearchLog();
-	}
-
-	/**
-	 * Saves the whole experiment into an rcs-file
-	 * 
-	 * @param file
-	 *            file the experiment shall be saved into
-	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because the
-	 *             import process for ReCaPo is much easier and a separate import
-	 *             and export mechanism is not needed anymore
-	 */
-	@Deprecated
-	public void saveExperiment(File file) {
-		ExperimentFile ef = new ExperimentFile(graph, experiment, maxProblemRate, maxReturnRate, timeToThink,
-				nodesToInspect, userCount);
-		FileOutputStream fos = null;
-
-		try {
-			fos = new FileOutputStream(file);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(ef);
-		} catch (IOException ex) {
-			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, ex);
-		} finally {
-			try {
-				fos.close();
-			} catch (IOException ex) {
-				Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, ex);
-			}
-
-		}
-	}
-
-	/**
-	 * Imports an experiment
-	 * 
-	 * @param file
-	 *            experiment file
-	 * 
-	 * @deprecated As of Version 1.1 this method is not used anymore, because the
-	 *             import process for ReCaPo is much easier and a separate import
-	 *             and export mechanism is not needed anymore
-	 */
-	@Deprecated
-	public void loadExperiment(File file) {
-		complete = false;
-		ExperimentFile ef;
-		FileInputStream fos = null;
-
-		try {
-			fos = new FileInputStream(file);
-			ois = new ObjectInputStream(fos);
-			ef = (ExperimentFile) ois.readObject();
-			graph = ef.getGraph();
-			experiment = ef.getTasks();
-			maxProblemRate = ef.getMaxProblemRate();
-			maxReturnRate = ef.getMaxReturnRate();
-			nodesToInspect = ef.getNodesToInspect();
-			timeToThink = ef.getTimeToThink();
-			userCount = ef.getUserCount();
-			gui.updateGUI();
-			gui.setAnalyseMenuEnabled(true);
-			gui.setExportMenuEnabled(true);
-			analyse();
-		} catch (ClassNotFoundException | IOException ex) {
-			Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, ex);
-		} finally {
-			try {
-				fos.close();
-			} catch (IOException ex) {
-				Logger.getLogger(ReCaLys.class.getName()).log(Level.SEVERE, null, ex);
-			}
-
-		}
 	}
 
 	/**
